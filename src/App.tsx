@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import GlobalStyle from './styles/global';
 
 class App extends Component {
   state = {}
@@ -6,9 +7,10 @@ class App extends Component {
   render() {
 
     return (
-      <div>
-
-      </div>
+      <Fragment>
+        <GlobalStyle />
+        gdgdfiiiiiii
+      </Fragment>
     )
   }
 }
