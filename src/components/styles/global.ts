@@ -12,11 +12,16 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
   }
-
+  
   body {
     box-sizing: border-box;
     background-color: black;
     color: white;
+  }
+  
+  :root {
+    --color-primary: #323A45;
+    --color-white: #FFFFFF;
   }
 `;
 

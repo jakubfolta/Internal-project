@@ -1,18 +1,26 @@
 import React, { Component, Fragment } from 'react';
-import GlobalStyle from './styles/global';
+import GlobalStyle from './components/styles/global';
+import { ChakraProvider } from "@chakra-ui/react";
+import { Layout } from './containers/Layout/Layout';
 
-class App extends Component {
-  state = {}
+export default class App extends Component {
+  state = {
 
+  }
+
+  componentDidMount() {
+    // fetch data from igdb api, save in state and pass state properties to Layout component........
+  }
+  
   render() {
 
     return (
       <Fragment>
-        <GlobalStyle />
-        gdgdfiiiiiii
+        <ChakraProvider>
+          <GlobalStyle />
+          <Layout />
+        </ChakraProvider>
       </Fragment>
-    )
+    );
   }
 }
-
-export default App;
