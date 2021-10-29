@@ -10,18 +10,26 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%;
+    font-size: 62.5%; // 1rem = 10px
   }
   
   body {
     box-sizing: border-box;
-    background-color: black;
-    color: white;
+    font-size: var(---default-font-size);
+    
   }
   
   :root {
+    // Colors
     --color-primary: #323A45;
     --color-white: #FFFFFF;
+    --color-grey: hsl(0, 0%, 90%);
+    // Fonts
+    --small-font-size: 1.4rem;
+    --default-font-size: 1.6rem;
+    --medium-font-size: 1.8rem;
+    --big-font-size: 2.3rem;
+
   }
 `;
 
