@@ -17,7 +17,7 @@ const StyledInput = styled(Input)`
 `;
 
 export const Search = () => (
-  <InputGroup>
+  <InputGroup maxW="28rem">
     <StyledInput 
       type="text"
       placeholder="Search"

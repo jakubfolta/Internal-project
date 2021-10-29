@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 import { Header } from '../Header/Header';
 
 const LayoutBox = styled(Box)`
-  padding: 0 20rem;
+  padding: 0 18rem;
 `;
     
 export const Layout = () => (
