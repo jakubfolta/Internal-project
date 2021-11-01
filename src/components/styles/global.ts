@@ -24,13 +24,14 @@ const GlobalStyle = createGlobalStyle`
     --color-primary: #323A45;
     --color-white: #FFFFFF;
     --color-grey: hsl(0, 0%, 90%);
-    --color-accent: #7214FF;
+    --color-accent: #9047FF;
+    --color-accent-dark: #7214FF;
     // Fonts
+    --xsmall-font-size: 1.2rem;
     --small-font-size: 1.4rem;
     --default-font-size: 1.6rem;
     --medium-font-size: 1.8rem;
     --big-font-size: 2.3rem;
-
   }
 `;
 
