@@ -10,8 +10,8 @@ const LayoutBox = styled(Box)`
 export const Layout = () => (
   <Fragment>
     <Header />
-    <LayoutBox>
+    {/* <LayoutBox> */}
       
-    </LayoutBox>
+    {/* </LayoutBox> */}
   </Fragment>
 )
