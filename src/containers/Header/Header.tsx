@@ -17,7 +17,6 @@ export const Header = () => (
         leftIcon={<Icon as={BsTwitch} />}
         link="https://www.igdb.com/oauth/twitch">
         LOGIN WITH TWITCH</DefaultButton>
-      
     </StyledHeader>
 
 )
