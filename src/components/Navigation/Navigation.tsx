@@ -45,7 +45,9 @@ export default class Navigation extends Component {
             hasDivider: true },
           { name: "Coming Soon", icon: <AtSignIcon /> },
           { name: "Recently Released", icon: <AtSignIcon /> },
-          { name: "Top 100", icon: <AtSignIcon /> },
+          { name: "Top 100",
+            icon: <AtSignIcon />,
+            hasDivider: true },
           { name: "Add Game", icon: <AtSignIcon /> }
         ]
       },
@@ -54,7 +56,9 @@ export default class Navigation extends Component {
         icon: <StarIcon />,
         subItems: [
           { name: "Games", icon: <AtSignIcon /> },
-          { name: "Platforms", icon: <AtSignIcon /> },
+          { name: "Platforms",
+            icon: <AtSignIcon />,
+            hasDivider: true },
           { name: "Developer API", icon: <AtSignIcon /> }
         ]
       },
