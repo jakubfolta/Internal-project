@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import { MenuList, MenuItem, MenuDivider } from "@chakra-ui/menu";
-import styled from "styled-components";
 
 interface Items {
-  items: object[]
+  items: {
+    icon: any;
+    name: string;
+    hasDivider?: boolean;
+  }[]
 }
-
-const StyledDivider = styled(MenuDivider)``;
 
 export const NavigationSubItem = ({items}: Items) => (
   <MenuList
@@ -24,9 +25,8 @@ export const NavigationSubItem = ({items}: Items) => (
           _focus={{bg: "var(--color-accent-dark)"}}
           padding="1rem 2rem">
           {item.name}</MenuItem>
-          <StyledDivider display={item.hasDivider ? "block" : "none"} />
+          {item.hasDivider && <MenuDivider />}
         </Fragment>
-          // {item.divider ? <MenuDivider /> : null}
       ))
     }
   </MenuList>

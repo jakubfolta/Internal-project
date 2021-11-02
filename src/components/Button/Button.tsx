@@ -1,6 +1,4 @@
 import { Button } from "@chakra-ui/button";
-import styled from "styled-components";
-
 
 interface Props {
   kind?: any,
@@ -8,12 +6,6 @@ interface Props {
   children?: string,
   link?: string
 }
-
-const StyledButton = styled(Button)`
-  /* && { */
-    /* margin-left: auto; */
-  /* } */
-`;
 
 export const DefaultButton = (props: Props) => (
   <Button 
@@ -26,8 +18,10 @@ export const DefaultButton = (props: Props) => (
     color="var(--color-white)"
     fontSize="var(--xsmall-font-size)"
     href={props.link}
+    _focus={{boxShadow: "none"}}
+    _active={{bg: "var(--color-accent-dark)"}}
     _hover={{bg: "var(--color-accent-dark)"}}
-    
+
     as={props.kind}
     leftIcon={props.leftIcon}>
     {props.children}
