@@ -42,7 +42,7 @@ export default class Navigation extends Component {
           { name: "Reviews", icon: <AtSignIcon /> },
           { name: "Advanced Search",
             icon: <AtSignIcon />,
-            divider: true },
+            hasDivider: true },
           { name: "Coming Soon", icon: <AtSignIcon /> },
           { name: "Recently Released", icon: <AtSignIcon /> },
           { name: "Top 100", icon: <AtSignIcon /> },
