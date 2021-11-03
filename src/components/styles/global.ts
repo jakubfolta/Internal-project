@@ -23,9 +23,11 @@ const GlobalStyle = createGlobalStyle`
     // Colors
     --color-primary: #323A45;
     --color-white: #FFFFFF;
+    --color-black: #444;
     --color-grey: hsl(0, 0%, 90%);
     --color-grey-2: #858585;
     --color-grey-3: #ECECEC;
+    --color-grey-4: #34373b;
     --color-accent: #9047FF;
     --color-accent-dark: #7214FF;
     // Fonts

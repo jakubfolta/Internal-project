@@ -1,5 +1,5 @@
 import React from 'react';
-import { DefaultButton } from '../../components/Button/Button';
+import { DefaultButton } from '../../components/UI/Button/Button';
 import { Icon } from '@chakra-ui/icon';
 import { BsTwitch } from 'react-icons/bs';
 import { Logo } from '../../components/Logo/Logo';
@@ -18,5 +18,4 @@ export const Header = () => (
         link="https://www.igdb.com/oauth/twitch">
         LOGIN WITH TWITCH</DefaultButton>
     </StyledHeader>
-
 )
