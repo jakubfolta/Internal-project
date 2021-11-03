@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     --color-white: #FFFFFF;
     --color-grey: hsl(0, 0%, 90%);
     --color-grey-2: #858585;
+    --color-grey-3: #ECECEC;
     --color-accent: #9047FF;
     --color-accent-dark: #7214FF;
     // Fonts
@@ -33,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
     --default-font-size: 1.6rem;
     --medium-font-size: 1.8rem;
     --medium-font-size-2: 2rem;
-    --big-font-size: 2.5rem;
+    --big-font-size: 2.4rem;
   }
 `;
 

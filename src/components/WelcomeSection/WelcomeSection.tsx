@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { Flex } from "@chakra-ui/layout";
 import styled from "styled-components";
 import { Button } from "@chakra-ui/button";
