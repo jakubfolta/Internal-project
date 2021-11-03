@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { CloseIcon } from "@chakra-ui/icons";
 import { Backdrop } from "../Backdrop/Backdrop";
 import { DefaultCheckbox } from "../UI/Checkbox/Checkbox";
+import { DefaultButton } from "../UI/Button/Button";
 
 interface PersonalizeModalProps {
   closeModalHandler: any;
@@ -75,16 +76,12 @@ export const PersonalizeModal = (props: PersonalizeModalProps) => {
             
             {platforms.map(platform => (
               <DefaultCheckbox label={platform} />
-            ))}
-            
-
-            {/* <Checkbox flexBasis="50%">Checkbox</Checkbox>
-            <Checkbox flexBasis="50%">Checkbox</Checkbox>
-            <Checkbox flexBasis="50%">Checkbox</Checkbox>
-            <Checkbox flexBasis="50%">Checkbox</Checkbox>
-            <Checkbox flexBasis="50%">Checkbox</Checkbox> */}
-          
+            ))}            
           </Flex>
+          <DefaultButton
+            color="yellow">
+            Cancel
+          </DefaultButton>
         </Box>
       </Flex>
     </Fragment>

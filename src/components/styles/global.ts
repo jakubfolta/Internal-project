@@ -28,7 +28,9 @@ const GlobalStyle = createGlobalStyle`
     --color-grey-2: #858585;
     --color-grey-3: #ECECEC;
     --color-grey-4: #34373b;
+    --color-grey-5: #BDC3C7;
     --color-accent: #9047FF;
+    --color-accent-2: #9147ff;
     --color-accent-dark: #7214FF;
     // Fonts
     --xsmall-font-size: 1.2rem;
