@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Box, Flex } from "@chakra-ui/layout";
 import styled from "styled-components";
 import { CloseIcon } from "@chakra-ui/icons";
+import { Backdrop } from "../Backdrop/Backdrop";
 
 interface Props {
   closeModalHandler?: any;
@@ -23,16 +24,7 @@ const Description = styled.p`
 
 export const PersonalizeModal = (props: Props) => (
   <Fragment>
-    <Box
-      position="absolute"
-      top="0"
-      left="0"
-      height="100vh"
-      width="100%"
-      bg="var(--color-white)"
-      
-      onClick={props.closeModalHandler}>
-    </Box>
+    <Backdrop clickHandler={props.closeModalHandler} />
     <Flex
       position="absolute"
       top="50vh"
