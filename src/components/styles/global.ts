@@ -23,15 +23,22 @@ const GlobalStyle = createGlobalStyle`
     // Colors
     --color-primary: #323A45;
     --color-white: #FFFFFF;
+    --color-black: #444;
     --color-grey: hsl(0, 0%, 90%);
+    --color-grey-2: #858585;
+    --color-grey-3: #ECECEC;
+    --color-grey-4: #34373b;
+    --color-grey-5: #BDC3C7;
     --color-accent: #9047FF;
+    --color-accent-2: #9147ff;
     --color-accent-dark: #7214FF;
     // Fonts
     --xsmall-font-size: 1.2rem;
     --small-font-size: 1.4rem;
     --default-font-size: 1.6rem;
     --medium-font-size: 1.8rem;
-    --big-font-size: 2.3rem;
+    --medium-font-size-2: 2rem;
+    --big-font-size: 2.4rem;
   }
 `;
 
