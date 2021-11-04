@@ -69,19 +69,44 @@ export const PersonalizeModal = (props: PersonalizeModalProps) => {
         </Box>
         <Box>
           <Description
-          fontSize="var(--default-font-size)"
-          color="var(color-grey-4)">Platforms you own:</Description>
+            fontSize="var(--default-font-size)"
+            color="var(color-grey-4)">Platforms you own:</Description>
           <Flex
             flexWrap="wrap">
-            
             {platforms.map(platform => (
               <DefaultCheckbox label={platform} />
             ))}            
           </Flex>
+          <Flex marginTop="1rem">
           <DefaultButton
-            color="yellow">
-            Cancel
-          </DefaultButton>
+              p="1.3rem 4rem"
+              fontSize="var(--default-font-size)"
+              color="var(--color-grey-2)"
+              bg="var(--color-white)"
+              border="2px solid var(--color-accent-2)"
+              borderRadius="3px"
+              _focus={{bg: "var(--color-grey-6)"}}
+              _active={{bg: "var(--color-grey-6)"}}
+              _hover={{bg: "var(--color-grey-6)"}}
+              clickHandler={props.closeModalHandler}>
+              Cancel
+            </DefaultButton>
+            <DefaultButton
+              p="1.3rem 4rem"
+              marginLeft=".5rem"
+              fontSize="var(--default-font-size)"
+              color="var(--color-white)"
+              bg="var(--color-accent-2)"
+              border="2px solid var(--color-accent-2)"
+              borderRadius="3px"
+              _focus={{bg: "var(--color-accent-dark)"}}
+              _active={{bg: "var(--color-accent-dark)"}}
+              _hover={{bg: "var(--color-accent-dark)",
+                       borderColor: "var(--color-accent-dark)"}}
+              clickHandler={props.closeModalHandler}>
+              Save
+            </DefaultButton>
+          </Flex>
         </Box>
       </Flex>
     </Fragment>
