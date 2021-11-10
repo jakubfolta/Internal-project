@@ -1,12 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Menu, MenuButton } from '@chakra-ui/menu';
 import { AtSignIcon, StarIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { Button } from '@chakra-ui/button';
 import { NavigationSubItem } from './NavigationSubItem';
 
-export default class Navigation extends Component {
-  state = {
-    navigationItems: [
+export const Navigation: React.FC = () => {
+  const [navigationItems, setNavigationItems] = useState([
       {
         name: "Games",
         icon: <StarIcon />,
@@ -53,42 +52,39 @@ export default class Navigation extends Component {
           { name: "Contact", icon: <AtSignIcon /> }
         ]
       }
-    ]
-  }
+    ]);
 
-  render() {
-    const navItems = this.state.navigationItems.map( item => 
-      <Fragment>
-        <Menu isLazy autoSelect={false}>
-          <MenuButton
-              as={Button}
-              leftIcon={item.icon}
-              rightIcon={<ChevronDownIcon />}
-              variant="flushed"
-              alignSelf="stretch"
-              height="auto"
-              color="var(--color-white)"
-              fontSize="var(--xsmall-font-size)"
-              textTransform="uppercase"
-              borderRadius="0"
-              p="0 1.5rem"
-              _focus={{boxShadow: "none"}}
-              _active={{
-                color: "var(--color-white)",
-                bg: "var(--color-accent)",
-                boxShadow: "none"}}
-              _hover={{color: "#7214FF"}}>
-              {item.name}
-          </MenuButton>
-          <NavigationSubItem items={item.subItems} />
-        </Menu>
-      </Fragment>
-    )
+  const navItems = navigationItems.map( item => 
+    <Fragment>
+      <Menu isLazy autoSelect={false}>
+        <MenuButton
+            as={Button}
+            leftIcon={item.icon}
+            rightIcon={<ChevronDownIcon />}
+            variant="flushed"
+            alignSelf="stretch"
+            height="auto"
+            color="var(--color-white)"
+            fontSize="var(--xsmall-font-size)"
+            textTransform="uppercase"
+            borderRadius="0"
+            p="0 1.5rem"
+            _focus={{boxShadow: "none"}}
+            _active={{
+              color: "var(--color-white)",
+              bg: "var(--color-accent)",
+              boxShadow: "none"}}
+            _hover={{color: "#7214FF"}}>
+            {item.name}
+        </MenuButton>
+        <NavigationSubItem items={item.subItems} />
+      </Menu>
+    </Fragment>
+  )
 
-    return(
-      <Fragment>
-        {navItems}
-      </Fragment>
-    );
-  }
+  return(
+    <Fragment>
+      {navItems}
+    </Fragment>
+  );
 }

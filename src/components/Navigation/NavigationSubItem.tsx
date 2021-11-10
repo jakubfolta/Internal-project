@@ -1,15 +1,8 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { MenuList, MenuItem, MenuDivider } from "@chakra-ui/menu";
+import { Props } from "./interfaces";
 
-interface Items {
-  items: {
-    icon: any;
-    name: string;
-    hasDivider?: boolean;
-  }[]
-}
-
-export const NavigationSubItem = ({items}: Items) => (
+export const NavigationSubItem: React.FC<Props> = props => (
   <MenuList
     bg="var(--color-accent)"
     color="var(--color-white)"
@@ -18,7 +11,7 @@ export const NavigationSubItem = ({items}: Items) => (
     border="none"
     borderRadius="0">
     {
-      items.map((item: any) => (
+      props.items.map(item => (
         <Fragment>
           <MenuItem 
           icon={item.icon}

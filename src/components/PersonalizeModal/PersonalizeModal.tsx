@@ -1,30 +1,13 @@
 import { Fragment, useState } from "react";
 import { Box, Flex } from "@chakra-ui/layout";
-import styled from "styled-components";
 import { CloseIcon } from "@chakra-ui/icons";
 import { Backdrop } from "../Backdrop/Backdrop";
 import { Checkbox } from "../UI/Checkbox/Checkbox";
 import { DefaultButton } from "../UI/Button/Button";
-
-interface StyledComponentsProps {
-  fontSize?: string;
-  color?: string;
-}
-
-const Heading = styled.h2`
-  font-size: var(--big-font-size);
-  font-weight: 500;
-`;
-
-const Description = styled.p`
-  margin: 2.5rem 0;
-  font-size: ${(props: StyledComponentsProps) => props.fontSize || "var(--medium-font-size)"};
-  font-weight: 300;
-  color: ${(props: StyledComponentsProps) => props.color || "var(--color-grey-2)"};
-`;
+import { Description, Heading } from "./styles";
 
 export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
-  const [platforms] = useState([
+  const [platforms, setPlatforms] = useState([
     'PC (Microsoft Windows)',
     'Xbox One',
     'PlayStation 4',
@@ -34,7 +17,7 @@ export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
     'iOS',
     'Android',
     'Nintendo 3DS',
-    'Playstation Vita',
+    'Playstation Vita'
   ]);
 
   return (
