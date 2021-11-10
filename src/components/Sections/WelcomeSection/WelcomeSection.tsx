@@ -11,33 +11,33 @@ export const WelcomeSection: React.FC = () => {
 
   const toggleModalHandler = () => setIsModalVisible((currentState) => !currentState);
 
-    return(
-      <Flex
-        justifyContent="space-between"
-        padding="2rem 1.8rem">
-        <MainHeading>
-          Welcome to the guiding star in <HeadingSpan>your </HeadingSpan>
-          world of gaming
-        </MainHeading>
-        <Button
-          rightIcon={<Icon as={IoMdOptions}
-                          color="var(--color-accent-dark)" />}
-          padding="3rem 0"
-          marginTop="-1.3rem"
-          fontSize="var(--medium-font-size-2)"
-          fontWeight="300"
-          bg="var(--color-white)"
-          color="var(--color-grey-2)"
-          cursor="pointer"
-          _focus={{boxShadow: "none"}}
-          _active={{bg: "transparent"}}
-          _hover={{bg: "transparent"}}
-          
-          onClickButton={() => toggleModalHandler()}>
-          Personalize
-        </Button>
-        {isModalVisible && <PersonalizeModal 
-                        onCloseModal={toggleModalHandler} />}
-      </Flex>
-    );
-  }
+  return (
+    <Flex
+      justifyContent="space-between"
+      padding="2rem 0">
+      <MainHeading>
+        Welcome to the guiding star in <HeadingSpan>your </HeadingSpan>
+        world of gaming
+      </MainHeading>
+      <Button
+        rightIcon={<Icon as={IoMdOptions}
+                        color="var(--color-accent-dark)" />}
+        padding="3rem 0"
+        marginTop="-1.3rem"
+        fontSize="var(--medium-font-size-2)"
+        fontWeight="300"
+        bg="var(--color-white)"
+        color="var(--color-grey-2)"
+        cursor="pointer"
+        _focus={{boxShadow: "none"}}
+        _active={{bg: "transparent"}}
+        _hover={{bg: "transparent"}}
+        
+        onClick={toggleModalHandler}>
+        Personalize
+      </Button>
+      {isModalVisible && <PersonalizeModal 
+                      onCloseModal={toggleModalHandler} />}
+    </Flex>
+  );
+}

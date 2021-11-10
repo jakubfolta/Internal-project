@@ -10,6 +10,7 @@ export const Backdrop: React.FC<{onClickBackdrop: React.MouseEventHandler}> = pr
     width="100%"
     bg="var(--color-white)"
     
+    
     onClick={props.onClickBackdrop}>
   </Box>
 ) 

@@ -24,14 +24,17 @@ const GlobalStyle = createGlobalStyle`
     --color-primary: #323A45;
     --color-white: #FFFFFF;
     --color-black: #444;
+    --color-black-2: #555;
     --color-grey: hsl(0, 0%, 90%);
     --color-grey-2: #858585;
     --color-grey-3: #ECECEC;
     --color-grey-4: #34373b;
     --color-grey-5: #BDC3C7;
     --color-grey-6: #e6e6e6;
+    --color-grey-7: #bfbfbf;
     --color-accent: #9047FF;
     --color-accent-2: #9147ff;
+    --color-accent-3: #f1c40f;
     --color-accent-dark: #7214FF;
     // Fonts
     --xsmall-font-size: 1.2rem;
