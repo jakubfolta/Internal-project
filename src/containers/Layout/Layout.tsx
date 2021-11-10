@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Box } from "@chakra-ui/react";
 import { Header } from '../Header/Header';
-import { WelcomeSection } from '../../components/WelcomeSection/WelcomeSection';
+import { WelcomeSection } from '../../components/Sections/WelcomeSection/WelcomeSection';
     
 export const Layout: React.FC = () => (
   <Fragment>

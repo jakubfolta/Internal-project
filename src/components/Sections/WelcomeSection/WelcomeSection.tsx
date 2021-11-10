@@ -3,7 +3,7 @@ import { Flex } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import Icon from "@chakra-ui/icon";
 import { IoMdOptions } from 'react-icons/io';
-import { PersonalizeModal } from "../PersonalizeModal/PersonalizeModal";
+import { PersonalizeModal } from "../../PersonalizeModal/PersonalizeModal";
 import { HeadingSpan, MainHeading } from "./styles";
 
 export const WelcomeSection: React.FC = () => {

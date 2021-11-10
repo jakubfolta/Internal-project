@@ -82,7 +82,7 @@ export const Navigation: React.FC = () => {
     </Fragment>
   )
 
-  return(
+  return (
     <Fragment>
       {navItems}
     </Fragment>
