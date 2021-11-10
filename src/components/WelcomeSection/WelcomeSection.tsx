@@ -1,25 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Flex } from "@chakra-ui/layout";
-import styled from "styled-components";
 import { Button } from "@chakra-ui/button";
 import Icon from "@chakra-ui/icon";
 import { IoMdOptions } from 'react-icons/io';
 import { PersonalizeModal } from "../PersonalizeModal/PersonalizeModal";
+import { HeadingSpan, MainHeading } from "./styles";
 
-const MainHeading = styled.h1`
-  font-size: var(--big-font-size);
-`;
+export const WelcomeSection: React.FC = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-const HeadingSpan = styled.span`
-  font-style: italic;
-`;
-
-export const WelcomeSection = () => {
-  const [showModal, setShowModal] = useState(false);
-
-  const toggleModalVisible = () => {
-    setShowModal((currentState) => !currentState);
-  }
+  const toggleModalHandler = () => setIsModalVisible((currentState) => !currentState);
 
     return(
       <Flex
@@ -43,11 +33,11 @@ export const WelcomeSection = () => {
           _active={{bg: "transparent"}}
           _hover={{bg: "transparent"}}
           
-          onClick={() => toggleModalVisible()}>
+          onClickButton={() => toggleModalHandler()}>
           Personalize
         </Button>
-        {showModal && <PersonalizeModal 
-                        closeModalHandler={toggleModalVisible} />}
+        {isModalVisible && <PersonalizeModal 
+                        onCloseModal={toggleModalHandler} />}
       </Flex>
     );
   }

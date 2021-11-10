@@ -1,19 +1,14 @@
-import React, { Fragment } from 'react';
-import styled from 'styled-components';
+import { Fragment } from 'react';
 import { Box } from "@chakra-ui/react";
 import { Header } from '../Header/Header';
 import { WelcomeSection } from '../../components/WelcomeSection/WelcomeSection';
-
-const LayoutBox = styled(Box)`
-  padding: 0 18rem;
-`;
     
-export const Layout = () => (
+export const Layout: React.FC = () => (
   <Fragment>
     <Header />
-    <LayoutBox>
+    <Box p="0 18rem">
       <WelcomeSection />
-      
-    </LayoutBox>
+
+    </Box>
   </Fragment>
 )

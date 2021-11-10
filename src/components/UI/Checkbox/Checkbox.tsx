@@ -1,55 +1,14 @@
-import React from "react";
-import { Box, Checkbox } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
-import styled from "styled-components";
+import { Label, Input, Span } from "./styles";
 
-interface Props {
-  label: string;
-}
-
-const Label = styled.label`
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  color: var(--color-black);
-  font-size: var(--small-font-size);
-  font-weight: 700;
-
-  &:hover > span { background-color: var(--color-grey-5); }
-`;
-
-const Input = styled.input`
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-
-  &:checked + span {
-    background-color: var(--color-accent-2);
-    border-color: var(--color-accent-2);
-  }
-`;
-
-const Span = styled.span`
-  position: relative;
-  margin-right: 1rem;
-  width: 2rem;
-  height: 2rem;
-  border: 2px solid var(--color-grey-5);
-  border-radius: 13%;
-
-
-`;
-
-export const DefaultCheckbox = (props: Props) => (
+export const Checkbox: React.FC<{label: string}> = props => (
   <Box
     position="relative"
     flexBasis="50%"
     marginBottom="1rem">
-
     <Label>
-      <Input type="checkbox" />
+      <Input />
       <Span>
         <CheckIcon 
           position="absolute"  

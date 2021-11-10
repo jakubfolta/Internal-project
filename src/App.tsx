@@ -1,26 +1,19 @@
-import React, { Component, Fragment } from 'react';
-import GlobalStyle from './components/styles/global';
+import { Fragment, useEffect } from 'react';
+import GlobalStyle from './styles/global';
 import { ChakraProvider } from "@chakra-ui/react";
 import { Layout } from './containers/Layout/Layout';
 
-export default class App extends Component {
-  state = {
-
-  }
-
-  componentDidMount() {
+export const App: React.FC = () => {
+  useEffect(() => {
     // fetch data from igdb api, save in state and pass state properties to Layout component........
-  }
+  }, []);
   
-  render() {
-
-    return (
-      <Fragment>
-        <ChakraProvider>
-          <GlobalStyle />
-          <Layout />
-        </ChakraProvider>
-      </Fragment>
-    );
-  }
+  return (
+    <Fragment>
+      <ChakraProvider>
+        <GlobalStyle />
+        <Layout />
+      </ChakraProvider>
+    </Fragment>
+  );
 }

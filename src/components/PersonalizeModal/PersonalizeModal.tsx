@@ -1,14 +1,10 @@
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { Box, Flex } from "@chakra-ui/layout";
 import styled from "styled-components";
 import { CloseIcon } from "@chakra-ui/icons";
 import { Backdrop } from "../Backdrop/Backdrop";
-import { DefaultCheckbox } from "../UI/Checkbox/Checkbox";
+import { Checkbox } from "../UI/Checkbox/Checkbox";
 import { DefaultButton } from "../UI/Button/Button";
-
-interface PersonalizeModalProps {
-  closeModalHandler: any;
-}
 
 interface StyledComponentsProps {
   fontSize?: string;
@@ -27,7 +23,7 @@ const Description = styled.p`
   color: ${(props: StyledComponentsProps) => props.color || "var(--color-grey-2)"};
 `;
 
-export const PersonalizeModal = (props: PersonalizeModalProps) => {
+export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
   const [platforms] = useState([
     'PC (Microsoft Windows)',
     'Xbox One',
@@ -43,7 +39,7 @@ export const PersonalizeModal = (props: PersonalizeModalProps) => {
 
   return (
     <Fragment>
-      <Backdrop clickHandler={props.closeModalHandler} />
+      <Backdrop onClickBackdrop={props.onCloseModal} />
       <Flex
         position="absolute"
         top="50vh"
@@ -64,7 +60,7 @@ export const PersonalizeModal = (props: PersonalizeModalProps) => {
             borderRadius="50%"             
             _hover={{bg: "var(--color-grey-3)"}}
             
-            onClick={props.closeModalHandler} />
+            onClick={props.onCloseModal} />
           <Description>Select what you want to see on your homepage</Description>
         </Box>
         <Box>
@@ -74,7 +70,7 @@ export const PersonalizeModal = (props: PersonalizeModalProps) => {
           <Flex
             flexWrap="wrap">
             {platforms.map(platform => (
-              <DefaultCheckbox label={platform} />
+              <Checkbox label={platform} />
             ))}            
           </Flex>
           <Flex marginTop="1rem">
@@ -88,7 +84,7 @@ export const PersonalizeModal = (props: PersonalizeModalProps) => {
               _focus={{bg: "var(--color-grey-6)"}}
               _active={{bg: "var(--color-grey-6)"}}
               _hover={{bg: "var(--color-grey-6)"}}
-              clickHandler={props.closeModalHandler}>
+              onClickButton={props.onCloseModal}>
               Cancel
             </DefaultButton>
             <DefaultButton
@@ -103,7 +99,7 @@ export const PersonalizeModal = (props: PersonalizeModalProps) => {
               _active={{bg: "var(--color-accent-dark)"}}
               _hover={{bg: "var(--color-accent-dark)",
                        borderColor: "var(--color-accent-dark)"}}
-              clickHandler={props.closeModalHandler}>
+              onClickButton={props.onCloseModal}>
               Save
             </DefaultButton>
           </Flex>

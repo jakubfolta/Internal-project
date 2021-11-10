@@ -1,30 +1,11 @@
-import React from "react";
 import { Button } from "@chakra-ui/button";
-import { CSSObject } from "@chakra-ui/styled-system";
-
-interface Props {
-  color?: string;
-  p?: string;
-  marginLeft?: string;
-  bg?: string;
-  border?: string;
-  borderRadius?: string;
-  fontSize?: string;
-  _focus?: CSSObject;
-  _active?: CSSObject;
-  _hover?: CSSObject;
-  kind?: any;
-  leftIcon?: any;
-  children?: string;
-  link?: string;
-  clickHandler?: React.MouseEventHandler;
-}
+import { Props } from "./interfaces";
 
 const defaultFocusValue = {boxShadow: "none"};
 const defaultActiveValue = {bg: "var(--color-accent-dark)"};
 const defaultHoverValue = {bg: "var(--color-accent-dark)"};
 
-export const DefaultButton = (props: Props) => (
+export const DefaultButton: React.FC<Props> = props => (
   <Button
     alignSelf="stretch"
     p={props.p || "auto"}
@@ -43,7 +24,7 @@ export const DefaultButton = (props: Props) => (
 
     as={props.kind}
     leftIcon={props.leftIcon}
-    onClick={props.clickHandler}>
+    onClick={props.onClickButton}>
     {props.children}
   </Button>
 )

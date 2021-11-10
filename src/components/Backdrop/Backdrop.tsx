@@ -1,11 +1,7 @@
-import React from "react";
 import { Box } from "@chakra-ui/layout";
+import React from "react";
 
-interface Props {
-  clickHandler: any;
-}
-
-export const Backdrop = (props: Props) => (
+export const Backdrop: React.FC<{onClickBackdrop: React.MouseEventHandler}> = props => (
   <Box
     position="absolute"
     top="0"
@@ -14,6 +10,6 @@ export const Backdrop = (props: Props) => (
     width="100%"
     bg="var(--color-white)"
     
-    onClick={props.clickHandler}>
+    onClick={props.onClickBackdrop}>
   </Box>
 ) 
