@@ -12,7 +12,7 @@ export interface Props {
   _active?: CSSObject;
   _hover?: CSSObject;
   kind?: any;
-  leftIcon?: any;
+  leftIcon?: JSX.Element;
   children?: string;
   link?: string;
   onClickButton?: React.MouseEventHandler;
