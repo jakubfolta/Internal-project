@@ -29,7 +29,8 @@ export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
         left="50vw"
         flexDirection="column"
         transform="translate(-50%, -50%)"
-        minWidth="90rem">
+        minWidth="90rem"
+        zIndex="3">
         <Box>
           <Heading>Personalize</Heading>
           <CloseIcon 

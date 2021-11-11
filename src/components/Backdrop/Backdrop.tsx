@@ -9,8 +9,8 @@ export const Backdrop: React.FC<{onClickBackdrop: React.MouseEventHandler}> = pr
     height="100vh"
     width="100%"
     bg="var(--color-white)"
-    
-    
+    zIndex="2"
+
     onClick={props.onClickBackdrop}>
   </Box>
 ) 

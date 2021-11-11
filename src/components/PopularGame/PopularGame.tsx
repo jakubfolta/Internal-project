@@ -1,8 +1,8 @@
+import { Image } from "@chakra-ui/image";
 import { Box } from "@chakra-ui/layout";
-import { Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Props } from "./interfaces";
-import { GameGenre, GameRating, GameTitle } from "./styles";
+import { GameGenre, GameRating, GameTitle, StyledBox } from "./styles";
 
 
 export const PopularGame: React.FC<Props> = props => (
@@ -10,7 +10,7 @@ export const PopularGame: React.FC<Props> = props => (
     to="/"
     // to={props.link}
     >
-    <Box>
+    <StyledBox>
       <Image
         boxSize="20rem"
         objectFit="cover"
@@ -21,12 +21,17 @@ export const PopularGame: React.FC<Props> = props => (
         position="relative"
         bg="var(--color-white)"
         p="1rem"
-        zIndex="-10">
-        <GameTitle>Witcher</GameTitle>
-        <GameGenre>RPG</GameGenre>
-        <GameRating>100%</GameRating>
+        zIndex="1">
+        <GameTitle>Witcher
+          {/* {props.title} */}
+          </GameTitle>
+        <GameGenre>
+          {/* {props.genre} */}
+          </GameGenre>
+        <GameRating>
+          {/* {props.rating} */}
+          </GameRating>
       </Box>
-    </Box>
+    </StyledBox>
   </Link>
-
 )
