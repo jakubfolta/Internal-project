@@ -55,7 +55,7 @@ export const Navigation: React.FC = () => {
     ]);
 
   const navItems = navigationItems.map( item => 
-    <Fragment>
+    <Fragment key={item.name}>
       <Menu isLazy autoSelect={false}>
         <MenuButton
             as={Button}
