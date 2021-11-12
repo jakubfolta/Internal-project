@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
     --medium-font-size: 1.8rem;
     --medium-font-size-2: 2rem;
     --big-font-size: 2.4rem;
+    --xl-font-size: 2.8rem;
   }
 `;
 

@@ -12,7 +12,7 @@ export const NavigationSubItem: React.FC<Props> = props => (
     borderRadius="0">
     {
       props.items.map(item => (
-        <Fragment>
+        <Fragment key={item.name}>
           <MenuItem 
           icon={item.icon}
           _focus={{bg: "var(--color-accent-dark)"}}

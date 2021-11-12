@@ -5,7 +5,7 @@ import { Button } from '@chakra-ui/button';
 import { NavigationSubItem } from './NavigationSubItem';
 
 export const Navigation: React.FC = () => {
-  const [navigationItems, setNavigationItems] = useState([
+  const [navigationItems] = useState([
       {
         name: "Games",
         icon: <StarIcon />,
@@ -55,7 +55,7 @@ export const Navigation: React.FC = () => {
     ]);
 
   const navItems = navigationItems.map( item => 
-    <Fragment>
+    <Fragment key={item.name}>
       <Menu isLazy autoSelect={false}>
         <MenuButton
             as={Button}

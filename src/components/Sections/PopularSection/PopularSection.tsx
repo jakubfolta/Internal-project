@@ -1,8 +1,19 @@
 import { Box, HStack } from "@chakra-ui/layout";
+import { useContext, useEffect } from "react";
+import { IgdbContext } from "../../../store/IgdbContext";
 import { PopularGame } from "../../PopularGame/PopularGame";
 import { Heading } from "./styles";
 
 export const PopularSection: React.FC = () => {
+
+  const igdbContext = useContext(IgdbContext);
+  useEffect(() => {
+    if (igdbContext.token) {
+      console.log(igdbContext.token);
+
+    }
+    
+  }, [igdbContext])
 
   return (
     <Box>

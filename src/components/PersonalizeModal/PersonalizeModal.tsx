@@ -7,7 +7,7 @@ import { DefaultButton } from "../UI/Button/Button";
 import { Description, Heading } from "./styles";
 
 export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
-  const [platforms, setPlatforms] = useState([
+  const [platforms] = useState([
     'PC (Microsoft Windows)',
     'Xbox One',
     'PlayStation 4',
@@ -29,7 +29,8 @@ export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
         left="50vw"
         flexDirection="column"
         transform="translate(-50%, -50%)"
-        minWidth="90rem">
+        minWidth="90rem"
+        zIndex="3">
         <Box>
           <Heading>Personalize</Heading>
           <CloseIcon 
@@ -53,7 +54,7 @@ export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
           <Flex
             flexWrap="wrap">
             {platforms.map(platform => (
-              <Checkbox label={platform} />
+              <Checkbox key={platform} label={platform} />
             ))}            
           </Flex>
           <Flex marginTop="1rem">
