@@ -5,7 +5,7 @@ export const clientSecret = '3a1o08neggwrnsmpt49nj6axlcxz8r';
 export const responseBody = (response: AxiosResponse) => response.data;
 
 export const axiosClient = axios.create({
-  baseURL: 'https://api.igdb.com/v4'
+  baseURL: 'http://192.168.0.49/https://api.igdb.com/v4'
 });
 
 // export const axiosClient = ((token: string) => {

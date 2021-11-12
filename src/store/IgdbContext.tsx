@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { clientId, clientSecret } from "../network/apiClient";
 import { auth } from "../network/lib/auth";
@@ -27,6 +28,7 @@ export const IgdbContextProvider: React.FC = props => {
           'Client-ID': clientId,
           'Authorization': `Bearer ${token}`
         }
+
         console.log(headers);
         setFetchedToken(token);
 
