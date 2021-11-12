@@ -5,7 +5,7 @@ import { Button } from '@chakra-ui/button';
 import { NavigationSubItem } from './NavigationSubItem';
 
 export const Navigation: React.FC = () => {
-  const [navigationItems, setNavigationItems] = useState([
+  const [navigationItems] = useState([
       {
         name: "Games",
         icon: <StarIcon />,
