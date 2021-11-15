@@ -14,17 +14,17 @@ export const IgdbContextProvider: React.FC = props => {
   const [isFetchingError, setIsFetchingError] = useState<boolean | string>(false);
 
   const weekTimePeriod: string = setWeekPeriodTimeString();
-  // const filterData: string = `&dates=${weekTimePeriod}&ordering=-added`;
-  const filterData: string = `&ordering=added`;
-  console.log(filterData);
-  const query: string = setQuery();
+  const filterData: string = `&dates=${weekTimePeriod}&ordering=-added&page_size=10`;
+  const query: string = setQuery(filterData);
 
   useEffect(() => {
     fetchGamesData('/games', query)
       .then(response => {
-        console.log(response);
-        // setFetchedGames(response);
+        const lastWeekPopularGames = response.results;
+        console.log(lastWeekPopularGames);
+        setFetchedGames(lastWeekPopularGames);
         })
+
       .catch(error => {
         const errorMessage: string = error.response.data.error;
 

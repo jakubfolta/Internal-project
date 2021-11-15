@@ -1,31 +1,31 @@
 import { Box, HStack } from "@chakra-ui/layout";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { IgdbContext } from "../../../store/IgdbContext";
 import { PopularGame } from "../../PopularGame/PopularGame";
 import { Heading } from "./styles";
 
 export const PopularSection: React.FC = () => {
-
   const igdbContext = useContext(IgdbContext);
-  useEffect(() => {
-    // console.log(igdbContext.games)
-    
-    
-  }, [igdbContext])
 
   return (
     <Box>
       <Heading>Popular games right now</Heading>
       <HStack 
+      
         direction="row"
+        
         spacing="1rem">
-          <PopularGame           // map through array of fetched data to create items
-          // alt={game.link}
-          // link={game.link} 
-          />
-
+          {igdbContext.games.map(game => (
+            <PopularGame
+              key={game.id}
+              link={`games/${game.name}`}
+              src={game.background_image}
+              alt={game.name}
+              title={game.name}
+              genre={game.genres[0].name}
+              rating={`${game.metacritic}%`} />
+          ))}
       </HStack>
     </Box>
-
   );
 }
