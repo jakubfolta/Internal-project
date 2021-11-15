@@ -6,32 +6,23 @@ import { GameGenre, GameRating, GameTitle, StyledBox, StyledSpan } from "./style
 
 
 export const PopularGame: React.FC<Props> = props => (
-  <Link
-    to="/"
-    // to={props.link}
-    >
+  <Link to={props.link}>
     <StyledBox>
       <StyledSpan>Read<br/>More</StyledSpan>
       <Image
-        boxSize="20rem"
+        boxSize="30rem"
         objectFit="cover"
-        // src={props.src}
-        // alt={props.alt} 
+        src={props.src}
+        alt={props.alt} 
         />
       <Box
         position="relative"
         bg="var(--color-white)"
         p="1rem"
         zIndex="1">
-        <GameTitle>Witcher
-          {/* {props.title} */}
-          </GameTitle>
-        <GameGenre>RPG
-          {/* {props.genre} */}
-          </GameGenre>
-        <GameRating>100%
-          {/* {props.rating} */}
-          </GameRating>
+        <GameTitle>{props.title}</GameTitle>
+        <GameGenre>{props.genre}</GameGenre>
+        <GameRating>{props.rating}</GameRating>
       </Box>
     </StyledBox>
   </Link>
