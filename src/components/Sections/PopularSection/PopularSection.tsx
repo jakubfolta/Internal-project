@@ -8,10 +8,8 @@ export const PopularSection: React.FC = () => {
 
   const igdbContext = useContext(IgdbContext);
   useEffect(() => {
-    if (igdbContext.token) {
-      console.log(igdbContext.token);
-
-    }
+    // console.log(igdbContext.games)
+    
     
   }, [igdbContext])
 

@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:5050",
   "homepage": "http://jakubfolta.github.io/Internal-project",
   "name": "my-app",
   "version": "0.1.0",

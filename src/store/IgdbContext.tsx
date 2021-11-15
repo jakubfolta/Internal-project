@@ -1,57 +1,43 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { clientId, clientSecret } from "../network/apiClient";
-import { auth } from "../network/lib/auth";
+import { setQuery } from "../network/apiClient";
 import { fetchGamesData } from "../network/lib/games";
+import { setWeekPeriodTimeString } from "../shared/utility";
 import { Context } from "./interfaces";
 
 export const IgdbContext = React.createContext<Context>({
-  token: null,
   games: [],
   error: false
 });
 
 export const IgdbContextProvider: React.FC = props => {
-  const [fetchedToken, setFetchedToken] = useState<string | null>(null);
   const [fetchedGames, setFetchedGames] = useState([]);
-  const [isFetchingError, setIsFetchingError] = useState(false);
+  const [isFetchingError, setIsFetchingError] = useState<boolean | string>(false);
+
+  const weekTimePeriod: string = setWeekPeriodTimeString();
+  // const filterData: string = `&dates=${weekTimePeriod}&ordering=-added`;
+  const filterData: string = `&ordering=added`;
+  console.log(filterData);
+  const query: string = setQuery();
 
   useEffect(() => {
-    const url = `https://id.twitch.tv/oauth2/token?client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials`;
-    
-    auth(url)
+    fetchGamesData('/games', query)
       .then(response => {
-        const token = response.access_token;
-        const headers = {
-          'Accept': 'application.json',
-          'Content-Type': 'application.json',
-          'Client-ID': clientId,
-          'Authorization': `Bearer ${token}`
-        }
+        console.log(response);
+        // setFetchedGames(response);
+        })
+      .catch(error => {
+        const errorMessage: string = error.response.data.error;
 
-        console.log(headers);
-        setFetchedToken(token);
-
-        fetchGamesData('/games', null, {headers: headers})
-          .then(response => {
-            console.log(response);
-            })
-          .catch(error => {
-            console.log(error);
-          })
-      })
-      .catch((error) => {
-        console.log(error);
+        setIsFetchingError(errorMessage);
       })
   }, []);
 
   const contextValue: Context = {
-    token: fetchedToken,
     games: fetchedGames, 
     error: isFetchingError
   };
   
   return <IgdbContext.Provider value={contextValue}>
           {props.children}
-         </IgdbContext.Provider>
+         </IgdbContext.Provider>;
 }
