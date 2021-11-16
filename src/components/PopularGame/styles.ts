@@ -1,25 +1,8 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const GameTitle = styled.h3`
-  font-size: var(--small-font-size);
-  font-weight: 600;
-  color: var(--color-black-2);
-  margin-bottom: 2px;
-`;
-
-export const GameGenre = styled.span`
-  font-size: var(--xsmall-font-size);
-  color: var(--color-grey-7);
-`;
-
-export const GameRating = styled.span`
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  font-size: var(--default-font-size);
-  font-weight: 600;
-  color: var(--color-black-2);
+export const StyledLink = styled(Link)`
+  flex: 1 0 var(--slide-width);
 `;
 
 export const StyledBox = styled.div`
@@ -38,15 +21,41 @@ export const StyledBox = styled.div`
   
   &:hover::after,
   &:hover span { display: block; }
-`;
+  `;
 
 export const StyledSpan = styled.span`
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   display: none;
   color: var(--color-white);
   font-size: var(--xl-font-size);
   z-index: 1;
-`;
+  `;
+  
+  export const GameTitle = styled.h3`
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--small-font-size);
+    font-weight: 600;
+    color: var(--color-black-2);
+    margin-bottom: 2px;
+  `;
+  
+  export const GameGenre = styled.span`
+    font-size: var(--xsmall-font-size);
+    color: var(--color-grey-7);
+  `;
+  
+  export const GameRating = styled.span`
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: var(--default-font-size);
+    font-weight: 600;
+    color: var(--color-black-2);
+  `;

@@ -11,10 +11,11 @@ export const PopularSection: React.FC = () => {
     <Box>
       <Heading>Popular games right now</Heading>
       <HStack 
-      
-        direction="row"
         
-        spacing="1rem">
+        direction="row"
+        overflow="hidden"
+        spacing="var(--default-slides-spacing)">
+
           {igdbContext.games.map(game => (
             <PopularGame
               key={game.id}
@@ -23,7 +24,7 @@ export const PopularSection: React.FC = () => {
               alt={game.name}
               title={game.name}
               genre={game.genres[0].name}
-              rating={`${game.metacritic}%`} />
+              rating={game.metacritic ? `${game.metacritic}%` : ''} />
           ))}
       </HStack>
     </Box>

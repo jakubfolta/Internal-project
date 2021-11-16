@@ -20,6 +20,17 @@ const GlobalStyle = createGlobalStyle`
   }
   
   :root {
+    --default-slides-amount: 5;
+    --default-slides-spacing: 1rem;
+    --default-width: 1152px;
+    --main-page-padding: 1rem;
+    --slide-width: calc(
+    (
+      (var(--default-width) - var(--main-page-padding) * 2) - 
+      ((var(--default-slides-amount) - 1) * var(--default-slides-spacing))
+    ) 
+    / var(--default-slides-amount)
+  );
     // Colors
     --color-primary: #323A45;
     --color-white: #FFFFFF;
