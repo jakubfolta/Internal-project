@@ -2,7 +2,7 @@ import { Box, HStack } from "@chakra-ui/layout";
 import { useContext } from "react";
 import { IgdbContext } from "../../../store/IgdbContext";
 import { PopularGame } from "../../PopularGame/PopularGame";
-import { Heading } from "./styles";
+import { Heading, StyledIconLeft, StyledIconRight, StyledSpan } from "./styles";
 
 export const PopularSection: React.FC = () => {
   const igdbContext = useContext(IgdbContext);
@@ -10,11 +10,17 @@ export const PopularSection: React.FC = () => {
   return (
     <Box>
       <Heading>Popular games right now</Heading>
-      <HStack 
-        
+      <HStack
+        position="relative"
         direction="row"
         overflow="hidden"
         spacing="var(--default-slides-spacing)">
+        <StyledSpan left>
+          <StyledIconLeft />
+        </StyledSpan>
+        <StyledSpan right>
+          <StyledIconRight />
+        </StyledSpan>
 
           {igdbContext.games.map(game => (
             <PopularGame

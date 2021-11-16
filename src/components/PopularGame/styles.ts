@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledLink = styled(Link)`
-  flex: 1 0 var(--slide-width);
+    flex: 1 0 var(--slide-width);
 `;
 
 export const StyledBox = styled.div`

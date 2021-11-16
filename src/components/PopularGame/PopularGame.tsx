@@ -9,6 +9,7 @@ export const PopularGame: React.FC<Props> = props => (
     <StyledBox>
       <StyledSpan>Read<br/>More</StyledSpan>
       <Image
+        fallbackSrc="https://via.placeholder.com/150"
         objectFit="cover"
         src={props.src}
         alt={props.alt} />
@@ -17,7 +18,8 @@ export const PopularGame: React.FC<Props> = props => (
         width="var(--slide-width)"
         bg="var(--color-white)"
         p="1rem"
-        zIndex="1">
+        border="1px solid var(--color-grey-3)"
+        zIndex="10">
         <GameTitle>{props.title}</GameTitle>
         <GameGenre>{props.genre}</GameGenre>
         <GameRating>{props.rating}</GameRating>
