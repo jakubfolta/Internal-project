@@ -28,4 +28,5 @@ export interface Context {
     }[];
   }[];
   error: boolean | string;
+  slideLeft: () => void;
 }

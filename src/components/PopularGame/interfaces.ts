@@ -4,5 +4,5 @@ export interface Props {
   link: string;
   title: string;
   genre: string;
-  rating: string;
+  rating: string | number;
 }
