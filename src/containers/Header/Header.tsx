@@ -4,17 +4,19 @@ import { BsTwitch } from 'react-icons/bs';
 import { Logo } from '../../components/Logo/Logo';
 import { Navigation } from '../../components/Navigation/Navigation';
 import { Search } from '../../components/Search/Search';
-import { StyledHeader } from './styles';
+import { StyledBox, StyledHeader } from './styles';
 
 export const Header: React.FC = () => (
     <StyledHeader>
-      <Logo />
-      <Search />
-      <Navigation />
-      <DefaultButton
-        kind="a"
-        leftIcon={<Icon as={BsTwitch} />}
-        link="https://www.igdb.com/oauth/twitch">
-        LOGIN WITH TWITCH</DefaultButton>
+      <StyledBox>
+        <Logo />
+        <Search />
+        <Navigation />
+        <DefaultButton
+          kind="a"
+          leftIcon={<Icon as={BsTwitch} />}
+          link="https://www.igdb.com/oauth/twitch">
+          LOGIN WITH TWITCH</DefaultButton>
+      </StyledBox>
     </StyledHeader>
 )

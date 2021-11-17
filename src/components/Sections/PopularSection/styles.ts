@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import styled, { css } from "styled-components";
 
 export const Heading = styled.h2`
   position: relative;
@@ -18,4 +19,36 @@ export const Heading = styled.h2`
     height: 2px;
     background-color: var(--color-accent-3);
   }
+`;
+
+export const StyledSpan = styled.span<{left?: boolean, right?: boolean}>`
+  position: absolute;
+  top: 0;
+  left: ${props => props.left && "var(--default-slides-spacing)"};
+  right: ${props => props.right && "var(--default-slides-spacing)"};
+  height: 100%;
+  cursor: pointer;
+  z-index: 11;
+
+  &:hover svg {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+`;
+
+const styledIcon = css`
+  && { color: white; }
+    
+    position: relative;
+    top: 20%;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 4rem;
+`;
+
+export const StyledIconLeft = styled(ChevronLeftIcon)`
+  ${styledIcon}
+`;
+
+export const StyledIconRight = styled(ChevronRightIcon)`
+  ${styledIcon}
 `;

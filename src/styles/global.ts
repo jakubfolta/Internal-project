@@ -1,6 +1,11 @@
+import { extendTheme } from '@chakra-ui/react';
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const theme = extendTheme({
+  colors: { white: "var(--color-background)" }
+});
+
+export const GlobalStyle = createGlobalStyle`
   *,
   *::before,
   *::after {
@@ -9,19 +14,24 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  html {
-    font-size: 62.5%; // 1rem = 10px
-  }
-  
-  body {
-    box-sizing: border-box;
-    font-size: var(---default-font-size);
-    
-  }
+  html { font-size: 62.5%; } // 1rem = 10px 
+  body { box-sizing: border-box; }
   
   :root {
+    --default-slides-amount: 5;
+    --default-slides-spacing: 1rem;
+    --default-width: 1152px;
+    --main-page-padding: 1rem;
+    --slide-width: calc(
+    (
+      (var(--default-width) - var(--main-page-padding) * 2) - 
+      (var(--default-slides-amount) + 1) * var(--default-slides-spacing)
+    ) 
+    / var(--default-slides-amount)
+  );
     // Colors
     --color-primary: #323A45;
+    --color-background: #FAFAFA;
     --color-white: #FFFFFF;
     --color-black: #444;
     --color-black-2: #555;

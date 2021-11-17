@@ -1,29 +1,29 @@
 import { Image } from "@chakra-ui/image";
 import { Box } from "@chakra-ui/layout";
-import { Link } from "react-router-dom";
 import { Props } from "./interfaces";
-import { GameGenre, GameRating, GameTitle, StyledBox, StyledSpan } from "./styles";
+import { GameGenre, GameRating, GameTitle, StyledBox, StyledLink, StyledSpan } from "./styles";
 
 
 export const PopularGame: React.FC<Props> = props => (
-  <Link to={props.link}>
+  <StyledLink to={props.link}>
     <StyledBox>
       <StyledSpan>Read<br/>More</StyledSpan>
       <Image
-        boxSize="30rem"
+        fallbackSrc="https://via.placeholder.com/150"
         objectFit="cover"
         src={props.src}
-        alt={props.alt} 
-        />
+        alt={props.alt} />
       <Box
         position="relative"
+        width="var(--slide-width)"
         bg="var(--color-white)"
         p="1rem"
-        zIndex="1">
+        border="1px solid var(--color-grey-3)"
+        zIndex="10">
         <GameTitle>{props.title}</GameTitle>
         <GameGenre>{props.genre}</GameGenre>
         <GameRating>{props.rating}</GameRating>
       </Box>
     </StyledBox>
-  </Link>
+  </StyledLink>
 )

@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import GlobalStyle from './styles/global';
+import GlobalStyle, { theme } from './styles/global';
 import { ChakraProvider } from "@chakra-ui/react";
 import { Layout } from './containers/Layout/Layout';
 import { Redirect, Route, Switch } from 'react-router';
@@ -15,7 +15,7 @@ export const App: React.FC = () => {
   
   return (
     <Fragment>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <GlobalStyle />
         <Layout>
           {routes}
