@@ -3,13 +3,12 @@ import { Box } from "@chakra-ui/layout";
 import { Props } from "./interfaces";
 import { GameGenre, GameRating, GameTitle, StyledBox, StyledLink, StyledSpan } from "./styles";
 
-
 export const PopularGame: React.FC<Props> = props => (
   <StyledLink to={props.link}>
     <StyledBox>
       <StyledSpan>Read<br/>More</StyledSpan>
       <Image
-        fallbackSrc="https://via.placeholder.com/150"
+        fallbackSrc="https://via.placeholder.com/250"
         objectFit="cover"
         src={props.src}
         alt={props.alt} />
@@ -22,7 +21,7 @@ export const PopularGame: React.FC<Props> = props => (
         zIndex="10">
         <GameTitle>{props.title}</GameTitle>
         <GameGenre>{props.genre}</GameGenre>
-        <GameRating>{props.rating}</GameRating>
+        <GameRating>{props.rating || 0}%</GameRating>
       </Box>
     </StyledBox>
   </StyledLink>

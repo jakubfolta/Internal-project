@@ -2,7 +2,7 @@ import { Box, HStack } from "@chakra-ui/layout";
 import { useContext } from "react";
 import { IgdbContext } from "../../../store/IgdbContext";
 import { PopularGame } from "../../PopularGame/PopularGame";
-import { Heading, StyledIconLeft, StyledIconRight, StyledSpan } from "./styles";
+import { Heading, StyledBox, StyledIconLeft, StyledIconRight, StyledSpan } from "./styles";
 
 export const PopularSection: React.FC = () => {
   const igdbContext = useContext(IgdbContext);
@@ -10,18 +10,21 @@ export const PopularSection: React.FC = () => {
   return (
     <Box>
       <Heading>Popular games right now</Heading>
-      <HStack
-        position="relative"
-        direction="row"
-        overflow="hidden"
-        spacing="var(--default-slides-spacing)">
-        <StyledSpan left>
+      <StyledBox>
+        
+        <StyledSpan left onClick={igdbContext.slideLeft}>
           <StyledIconLeft />
         </StyledSpan>
         <StyledSpan right>
           <StyledIconRight />
         </StyledSpan>
 
+        <HStack
+          id="slides_container"
+          position="relative"
+          transition="transform .5s ease"
+          direction="row"
+          spacing="0">
           {igdbContext.games.map(game => (
             <PopularGame
               key={game.id}
@@ -30,9 +33,10 @@ export const PopularSection: React.FC = () => {
               alt={game.name}
               title={game.name}
               genre={game.genres[0].name}
-              rating={game.metacritic ? `${game.metacritic}%` : ''} />
+              rating={game.metacritic} />
           ))}
-      </HStack>
+        </HStack>
+      </StyledBox>
     </Box>
   );
 }

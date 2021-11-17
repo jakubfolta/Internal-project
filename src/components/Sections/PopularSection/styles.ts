@@ -21,6 +21,12 @@ export const Heading = styled.h2`
   }
 `;
 
+export const StyledBox = styled.div`
+  position: relative;
+  display: flex;
+  overflow: hidden;
+`;
+
 export const StyledSpan = styled.span<{left?: boolean, right?: boolean}>`
   position: absolute;
   top: 0;
