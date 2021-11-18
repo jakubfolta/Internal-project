@@ -12,10 +12,10 @@ export const PopularSection: React.FC = () => {
       <Heading>Popular games right now</Heading>
       <StyledBox>
         
-        <StyledSpan left onClick={igdbContext.slideLeft}>
+        <StyledSpan id="left" onClick={(e) => igdbContext.slide(e)}>
           <StyledIconLeft />
         </StyledSpan>
-        <StyledSpan right>
+        <StyledSpan id="right" onClick={(e) => igdbContext.slide(e)}>
           <StyledIconRight />
         </StyledSpan>
 

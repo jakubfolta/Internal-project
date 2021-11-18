@@ -28,5 +28,5 @@ export interface Context {
     }[];
   }[];
   error: boolean | string;
-  slideLeft: () => void;
+  slide: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }

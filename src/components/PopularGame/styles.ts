@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledLink = styled(Link)`
-  /* flex: 1 0 213px; */
-  /* var(--slide-width); */
+  flex: 1 0 var(--slide-width);
 
-  && { margin-left: var(--default-slides-spacing); }
+  && { margin: 0 var(--default-slides-spacing); }
 `;
 
 export const StyledBox = styled.div`
@@ -56,7 +55,7 @@ export const StyledSpan = styled.span`
   export const GameRating = styled.span`
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 1rem;
     transform: translateY(-50%);
     font-size: var(--default-font-size);
     font-weight: 600;

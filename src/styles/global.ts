@@ -18,17 +18,15 @@ export const GlobalStyle = createGlobalStyle`
   body { box-sizing: border-box; }
   
   :root {
-    --default-slides-amount: 5;
-    --default-slides-spacing: 1rem;
+    --default-slides-amount: 4;
+    --default-slides-spacing: .5rem;
     --default-width: 1152px;
     --main-page-padding: 1rem;
+    
     --slide-width: calc(
-    (
-      (var(--default-width) - var(--main-page-padding) * 2) - 
-      (var(--default-slides-amount) + 1) * var(--default-slides-spacing)
-    ) 
-    / var(--default-slides-amount)
-  );
+        (var(--default-width) - var(--main-page-padding) * 2) 
+      / var(--default-slides-amount) - var(--default-slides-spacing) * 2
+    );
     // Colors
     --color-primary: #323A45;
     --color-background: #FAFAFA;

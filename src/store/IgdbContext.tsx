@@ -7,7 +7,7 @@ import { Context } from "./interfaces";
 export const IgdbContext = React.createContext<Context>({
   games: [],
   error: false,
-  slideLeft: () => {}
+  slide: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {}
 });
 
 export const IgdbContextProvider: React.FC = props => {
@@ -16,7 +16,7 @@ export const IgdbContextProvider: React.FC = props => {
   const [shiftValue, setShiftValue] = useState(0);
 
   const weekTimePeriod: string = setWeekPeriodTimeString();
-  const filterData: string = `&dates=${weekTimePeriod}&ordering=-added&page_size=10`;
+  const filterData = `&dates=${weekTimePeriod}&ordering=-added&page_size=10`;
   const query: string = setQuery(filterData);
 
   useEffect(() => {
@@ -35,24 +35,24 @@ export const IgdbContextProvider: React.FC = props => {
   }, []);
 
 
-  const slideLeftHandler = () => {
+  const slideHandler = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    const slideDirection: string = e.currentTarget.getAttribute('id')!
     const slidesContainer = document.getElementById('slides_container')!;
-    // const slideWidth = slidesContainer.offsetWidth / fetchedGames.length;
-    const slideWidth = slidesContainer.offsetWidth;
-    const roundedSlideWidth = Math.floor(slideWidth);
-    const translateValue =+ shiftValue + roundedSlideWidth;
+    const slideWidth: number = slidesContainer.offsetWidth / fetchedGames.length;
 
-    setShiftValue(translateValue);
-    // const translate += roundedSlideWidth;
-
-    console.log(translateValue, slideWidth);
-    slidesContainer.style.transform=`translateX(-${translateValue}px)`;
+    const translateValue: number = slideDirection === 'left'
+      ? shiftValue + slideWidth
+      : shiftValue - slideWidth;
+    
+    slidesContainer.style.transform=`translateX(${translateValue}px)`;
+    setShiftValue(translateValue)
+    // console.log(translateValue, isNegativeNumber);
   }
 
   const contextValue: Context = {
     games: fetchedGames, 
     error: isFetchingError,
-    slideLeft: slideLeftHandler
+    slide: slideHandler
   };
   
   return <IgdbContext.Provider value={contextValue}>

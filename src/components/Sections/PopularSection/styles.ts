@@ -27,11 +27,11 @@ export const StyledBox = styled.div`
   overflow: hidden;
 `;
 
-export const StyledSpan = styled.span<{left?: boolean, right?: boolean}>`
+export const StyledSpan = styled.span<{id: string}>`
   position: absolute;
   top: 0;
-  left: ${props => props.left && "var(--default-slides-spacing)"};
-  right: ${props => props.right && "var(--default-slides-spacing)"};
+  left: ${props => props.id === 'left' && "var(--default-slides-spacing)"};
+  right: ${props => props.id === 'right' && "var(--default-slides-spacing)"};
   height: 100%;
   cursor: pointer;
   z-index: 11;
@@ -46,7 +46,7 @@ const styledIcon = css`
   && { color: white; }
     
     position: relative;
-    top: 20%;
+    top: 25%;
     background-color: rgba(0, 0, 0, 0.6);
     font-size: 4rem;
 `;
