@@ -9,7 +9,7 @@ export const StyledLink = styled(Link)`
 
 export const StyledBox = styled.div`
   position: relative;
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -27,7 +27,7 @@ export const StyledBox = styled.div`
 
 export const StyledSpan = styled.span`
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
   display: none;

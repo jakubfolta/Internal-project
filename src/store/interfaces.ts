@@ -28,5 +28,5 @@ export interface Context {
     }[];
   }[];
   error: boolean | string;
-  slide: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  setGames: (games: any[]) => void;
 }

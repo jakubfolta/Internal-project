@@ -7,11 +7,14 @@ export const PopularGame: React.FC<Props> = props => (
   <StyledLink to={props.link}>
     <StyledBox>
       <StyledSpan>Read<br/>More</StyledSpan>
-      <Image
-        fallbackSrc="https://via.placeholder.com/250"
-        objectFit="cover"
-        src={props.src}
-        alt={props.alt} />
+        <Image
+          fallbackSrc="https://via.placeholder.com/200"
+          height="15rem"
+          width="100%"
+          objectFit="cover"
+          src={props.src}
+          alt={props.alt} />
+
       <Box
         position="relative"
         width="var(--slide-width)"
