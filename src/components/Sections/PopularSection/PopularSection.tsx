@@ -2,7 +2,7 @@ import { Box, HStack } from "@chakra-ui/layout";
 import { useContext, useState } from "react";
 import { IgdbContext } from "../../../store/IgdbContext";
 import { PopularGame } from "../../PopularGame/PopularGame";
-import { SlidesData } from "./interfaces";
+import { ShiftData } from "./interfaces";
 import { Heading, StyledBox, StyledIconLeft, StyledIconRight, StyledSpan } from "./styles";
 
 export const PopularSection: React.FC = () => {
@@ -12,24 +12,21 @@ export const PopularSection: React.FC = () => {
   const igdbContext = useContext(IgdbContext);
   const fetchedGames = [...igdbContext.games];
 
-  const translateUpdatedSlides = (slidesData: SlidesData) => {
-    let lastGame: {}[], firstGame: {}[];
-    let updatedGames: {}[] = [];
+  const shiftSlidesContainer = (shiftData: ShiftData) => shiftData.container.style.left=`${shiftData.translate * -1 - shiftData.slide}px`;
 
-      if (slidesData.direction === 'left') {
-        lastGame = fetchedGames.splice(-1, 1);
-        // slidesData.container.style.left=`${slidesData.translate * -1 - slidesData.slide}px`;
-        updatedGames = [...lastGame, ...fetchedGames];
-        igdbContext.setGames(updatedGames);
-      }
-      if (slidesData.direction === 'right') {
-        firstGame = fetchedGames.splice(0, 1);
-        updatedGames = [...fetchedGames, ...firstGame];
-      }
-      if (updatedGames.length) igdbContext.setGames(updatedGames);
-      slidesData.container.style.left=`${slidesData.translate * -1 - slidesData.slide}px`;
-  }
-  
+  const updateSlides = (direction: string) => {
+    let updatedGames: {}[] = [];
+    const copiedGame = direction === 'left'
+      ? fetchedGames.splice(-1, 1)
+      : fetchedGames.splice(0, 1);
+
+    updatedGames = direction === 'left'
+      ? [...copiedGame, ...fetchedGames]
+      : [...fetchedGames, ...copiedGame]
+      
+      igdbContext.setGames(updatedGames);
+    }
+    
   const slideHandler = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     if (!isSliderReady) return;
     setIsSliderReady(false);
@@ -46,14 +43,14 @@ export const PopularSection: React.FC = () => {
     setShiftValue(translateValue);
     
     setTimeout(() => {
-      const data = {
-        direction: slideDirection,
+      const ShiftData = {
         container: slidesContainer,
         translate: translateValue,
         slide: slideWidth
       }
-
-      translateUpdatedSlides(data);
+      
+      updateSlides(slideDirection);
+      shiftSlidesContainer(ShiftData);
       setIsSliderReady(true);
     }, 500)
   }
