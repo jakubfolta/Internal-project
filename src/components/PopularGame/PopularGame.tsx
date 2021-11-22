@@ -11,7 +11,7 @@ export const PopularGame: React.FC<Props> = props => (
           fallbackSrc="https://via.placeholder.com/200"
           height="15rem"
           width="100%"
-          objectFit="cover"
+          fit="cover"
           src={props.src}
           alt={props.alt} />
 
