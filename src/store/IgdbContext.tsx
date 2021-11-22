@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { setQuery } from "../network/apiClient";
 import { fetchGamesData } from "../network/lib/games";
-import { setWeekPeriodTimeString } from "../shared/utility";
+import { setHalfYearPeriodTimeString } from "../shared/utility";
 import { Context } from "./interfaces";
 
 export const IgdbContext = React.createContext<Context>({
   games: [],
   error: false,
-  setGames: () => {}
+  setGames: () => {},
+  setError: () => {}
 });
 
 export const IgdbContextProvider: React.FC = props => {
   const [fetchedGames, setFetchedGames] = useState<any[]>([]);
   const [isFetchingError, setIsFetchingError] = useState<boolean | string>(false);
 
-  const weekTimePeriod: string = setWeekPeriodTimeString();
+  const halfYearTimePeriod: string = setHalfYearPeriodTimeString();
   const gamesAmountToFetch = 10;
-  const filterData = `&dates=${weekTimePeriod}&ordering=-added&page_size=${gamesAmountToFetch}`;
+  const filterData = `&dates=${halfYearTimePeriod}&page_size=${gamesAmountToFetch}`;
   const query: string = setQuery(filterData);
   
   useEffect(() => {
-    fetchGamesData('/games', query)
+    fetchGamesData(query)
     .then(response => {
-      const lastWeekPopularGames = response.results;
-      const lastGame = lastWeekPopularGames.splice(-1, 1)
-      const updatedGames = [...lastGame, ...lastWeekPopularGames];
+      const lastSixMonthsPopularGames = response.results;
+      const shuffledGames = lastSixMonthsPopularGames.sort((a: {}, b: {}) => .5 - Math.random());
+      const lastGame = shuffledGames.splice(-1, 1);
+      const updatedGames = [...lastGame, ...shuffledGames];
+
+      // console.log(lastSixMonthsPopularGames);
       
       setFetchedGames(updatedGames);
     })
@@ -39,7 +43,8 @@ export const IgdbContextProvider: React.FC = props => {
   const contextValue: Context = {
     games: fetchedGames, 
     error: isFetchingError,
-    setGames: setFetchedGames
+    setGames: setFetchedGames,
+    setError: setIsFetchingError
   };
   
   return <IgdbContext.Provider value={contextValue}>
