@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { setQuery } from "../network/apiClient";
-import { fetchGamesData } from "../network/lib/games";
+import { fetchPopularGamesData } from "../network/lib/games";
 import { setHalfYearPeriodTimeString } from "../shared/utility";
 import { Context } from "./interfaces";
 
@@ -21,7 +21,7 @@ export const IgdbContextProvider: React.FC = props => {
   const query: string = setQuery(filterData);
   
   useEffect(() => {
-    fetchGamesData(query)
+    fetchPopularGamesData(query)
     .then(response => {
       const lastSixMonthsPopularGames = response.results;
       const shuffledGames = lastSixMonthsPopularGames.sort((a: {}, b: {}) => .5 - Math.random());
