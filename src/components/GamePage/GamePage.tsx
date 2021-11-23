@@ -1,4 +1,3 @@
-import { Image } from "@chakra-ui/image";
 import { Box } from "@chakra-ui/layout";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react"
@@ -6,10 +5,11 @@ import { useParams } from "react-router";
 import { setQuery } from "../../network/apiClient";
 import { fetchGameData } from "../../network/lib/games";
 import { IgdbContext } from "../../store/IgdbContext";
+import { Details } from "./Details/Details";
+import { Hero } from "./Hero/Hero";
 import { Game } from "./interfaces";
-import { StyledHero } from "./styles";
 
-export const GamePage: React.FC = () => {
+const GamePage: React.FC = () => {
   const [game, setGame] = useState<Game>();
 
   const igdbContext = useContext(IgdbContext);
@@ -29,7 +29,7 @@ export const GamePage: React.FC = () => {
       };
       
       console.log(gameData);
-      console.log(randomScreenshot);
+      // console.log(randomScreenshot);
 
       setGame(gameData);
     }))
@@ -40,21 +40,18 @@ export const GamePage: React.FC = () => {
     })
   }, []);
 
-
   return (
     <Box>
-      <StyledHero>
-        <Image
-          height="100%"
-          width="100%"
-          fit="cover"
-          filter="blur(8px)"
-          transform="scale(1.1)"
-          src={game?.screenshots[game.random_screenshot].image}
-          alt={game?.name} />
-      </StyledHero>
+      <Hero 
+        alt={game?.name as string}
+        src={game?.screenshots[game.random_screenshot].image as string} 
+        title={game?.name as string}
+        release={game?.released as string}
+        publisher={game?.publishers[0].name as string} />
+      <Details></Details>
 
     </Box>
-
-  )
+  );
 }
+
+export default GamePage;

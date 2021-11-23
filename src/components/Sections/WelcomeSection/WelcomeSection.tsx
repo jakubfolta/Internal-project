@@ -26,7 +26,7 @@ export const WelcomeSection: React.FC = () => {
         marginTop="-1.3rem"
         fontSize="var(--medium-font-size-2)"
         fontWeight="300"
-        bg="var(--color-white)"
+        bg="var(--color-background)"
         color="var(--color-grey-2)"
         cursor="pointer"
         _focus={{boxShadow: "none"}}

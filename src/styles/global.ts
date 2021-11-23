@@ -53,6 +53,7 @@ export const GlobalStyle = createGlobalStyle`
     --medium-font-size-2: 2rem;
     --big-font-size: 2.4rem;
     --xl-font-size: 2.8rem;
+    --game-heading-size: 6rem;
   }
 `;
 
