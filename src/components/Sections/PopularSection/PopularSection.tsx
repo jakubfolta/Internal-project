@@ -76,7 +76,7 @@ export const PopularSection: React.FC = () => {
             {igdbContext.games.map(game => (
               <PopularGame
                 key={game.id}
-                link={`games/${game.name}`}
+                link={`games/${game.slug}`}
                 src={game.background_image}
                 alt={game.name}
                 title={game.name}

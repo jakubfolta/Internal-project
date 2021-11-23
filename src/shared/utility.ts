@@ -1,4 +1,4 @@
-export const setWeekPeriodTimeString = () => {
+export const setHalfYearPeriodTimeString = () => {
   const currentDate = new Date();
 
   const [currentYear, currentMonth, currentDay] = [
@@ -7,16 +7,16 @@ export const setWeekPeriodTimeString = () => {
     (`0${currentDate.getDate()}`).slice(-2)
   ];
   
-  const sevenDaysAgoDay = currentDate.getDate() - 7;
-  const weekAgoDate = new Date(currentDate.setDate(sevenDaysAgoDay));
+  const sixMonthsAgoDay = currentDate.getDate() - 180;
+  const halfYearAgoDate = new Date(currentDate.setDate(sixMonthsAgoDay));
   
-  const [weekAgoYear, weekAgoMonth, weekAgoDay] = [
-    weekAgoDate.getFullYear(),
-    (`0${weekAgoDate.getMonth() + 1}`).slice(-2),
-    (`0${weekAgoDate.getDate()}`).slice(-2)
+  const [halfYearAgoYear, halfYearAgoMonth, halfYearAgoDay] = [
+    halfYearAgoDate.getFullYear(),
+    (`0${halfYearAgoDate.getMonth() + 1}`).slice(-2),
+    (`0${halfYearAgoDate.getDate()}`).slice(-2)
   ];
 
-  const weekTimePeriod = `${weekAgoYear}-${weekAgoMonth}-${weekAgoDay},${currentYear}-${currentMonth}-${currentDay}`;
+  const halfYearTimePeriod = `${halfYearAgoYear}-${halfYearAgoMonth}-${halfYearAgoDay},${currentYear}-${currentMonth}-${currentDay}`;
 
-  return weekTimePeriod;
+  return halfYearTimePeriod;
 }

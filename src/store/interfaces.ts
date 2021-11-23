@@ -26,7 +26,9 @@ export interface Context {
     short_screenshots: {
       image: string;
     }[];
+    slug: string;
   }[];
   error: boolean | string;
   setGames: (games: any[]) => void;
+  setError: (error: string | boolean) => void;
 }
