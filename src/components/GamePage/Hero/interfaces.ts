@@ -4,4 +4,5 @@ export interface Props {
   title: string;
   release: string;
   publisher: string;
+  publisherSlug: string;
 }

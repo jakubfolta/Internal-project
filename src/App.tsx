@@ -6,6 +6,7 @@ import { Redirect, Route, Switch } from 'react-router';
 import { MainPage } from './components/MainPage/MainPage';
 
 const GamePageComponent = React.lazy(() => import('./components/GamePage/GamePage') );
+// const PublisherPageComponent = React.lazy(() => import('./components/PublisherPage/PublisherPage') );
 
 export const App: React.FC = () => {
   const routes =
@@ -13,6 +14,7 @@ export const App: React.FC = () => {
       <Switch>
         <Route path="/discovery" exact component={MainPage} />
         <Route path="/games/:game" exact component={GamePageComponent} />
+        {/* <Route path="/companies/:publisher" exact component={PublisherPageComponent} /> */}
         <Redirect to="/discovery" />
       </Switch>;
     </Suspense>

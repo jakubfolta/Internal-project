@@ -47,7 +47,8 @@ const GamePage: React.FC = () => {
         src={game?.screenshots[game.random_screenshot].image as string} 
         title={game?.name as string}
         release={game?.released as string}
-        publisher={game?.publishers[0].name as string} />
+        publisher={game?.publishers[0].name as string}
+        publisherSlug={game?.publishers[0].slug as string} />
       <Details></Details>
 
     </Box>

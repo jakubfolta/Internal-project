@@ -20,3 +20,18 @@ export const setHalfYearPeriodTimeString = () => {
 
   return halfYearTimePeriod;
 }
+
+export const getElapsedDaysSincePastDate = (pastDate: string, isRounded?: boolean) => {
+  const elapsedSeconds = Math.floor((new Date().getTime() - new Date(pastDate).getTime()) / 1000);
+  const elapsedMinutes = Math.floor(elapsedSeconds / 60);
+  const elapsedHours = Math.floor(elapsedMinutes / 60);
+  const elapsedDays = Math.floor(elapsedHours / 24);
+
+  return isRounded ? getRoundedDaysGone(elapsedDays) : elapsedDays;
+}
+
+const getRoundedDaysGone = (daysGone: number) => {
+  if (daysGone < 30) return `${daysGone} ${daysGone === 1 ? 'day' : 'days'} ago`;
+  if (Math.round(daysGone / 30) === 1) return 'a month ago'; 
+  return `${Math.round(daysGone / 30)} months ago`;
+} 

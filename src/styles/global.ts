@@ -41,6 +41,8 @@ export const GlobalStyle = createGlobalStyle`
     --color-grey-5: #BDC3C7;
     --color-grey-6: #e6e6e6;
     --color-grey-7: #bfbfbf;
+    --color-edit-bg: #f7f8fa;
+    --color-edit: #4E4E4E;
     --color-accent: #9047FF;
     --color-accent-2: #9147ff;
     --color-accent-3: #f1c40f;
