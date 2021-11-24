@@ -28,7 +28,7 @@ const GamePage: React.FC = () => {
         series: responses[2].results
       };
       
-      console.log(gameData);
+      // console.log(gameData);
       // console.log(randomScreenshot);
 
       setGame(gameData);
