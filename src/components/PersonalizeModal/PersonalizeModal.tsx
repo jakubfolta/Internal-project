@@ -22,7 +22,7 @@ export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
 
   return (
     <Fragment>
-      <Backdrop onClickBackdrop={props.onCloseModal} />
+      <Backdrop isWhite onClickBackdrop={props.onCloseModal} />
       <Flex
         position="absolute"
         top="50vh"

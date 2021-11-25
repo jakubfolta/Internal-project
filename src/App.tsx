@@ -16,7 +16,7 @@ export const App: React.FC = () => {
         <Route path="/games/:game" exact component={GamePageComponent} />
         {/* <Route path="/companies/:publisher" exact component={PublisherPageComponent} /> */}
         <Redirect to="/discovery" />
-      </Switch>;
+      </Switch>
     </Suspense>
   
   return (
