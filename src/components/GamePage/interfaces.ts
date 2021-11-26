@@ -3,6 +3,7 @@ import { Developers, Publishers, Screenshots } from "../../shared/api.interfaces
 export interface Game {
   achievements_count: number;
   background_image: string;
+  background_image_additional: string;
   description_raw: string;
   developers: Developers[];
   genres: {

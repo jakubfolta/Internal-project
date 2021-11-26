@@ -28,7 +28,7 @@ const GamePage: React.FC = () => {
         series: responses[2].results
       };
       
-      // console.log(gameData);
+      console.log(gameData);
       // console.log(randomScreenshot);
 
       setGame(gameData);
@@ -49,7 +49,8 @@ const GamePage: React.FC = () => {
         release={game?.released as string}
         publisher={game?.publishers[0].name as string}
         publisherSlug={game?.publishers[0].slug as string} />
-      <Details></Details>
+      <Details 
+        src={game?.background_image as string}  />
 
     </Box>
   );

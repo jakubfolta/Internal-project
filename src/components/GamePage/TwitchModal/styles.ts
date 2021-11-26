@@ -9,7 +9,7 @@ export const StyledTwitchBox = styled(Box)`
   transform: translateX(-50%);
   font-size: var(--default-font-size);
   font-weight: 700;
-  width: 90vh;
+  width: 70vh;
   background-color: var(--color-background);
   border-radius: 6px;
   padding: .6rem;
@@ -50,3 +50,4 @@ export const StyledTwitchButton = styled(Button)`
     background-color: var(--color-accent-2);
   }
 `;
+

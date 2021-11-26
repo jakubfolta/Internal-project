@@ -49,7 +49,6 @@ export const Hero: React.FC<Props> = React.memo(props => {
           <StyledPublisher to={`/companies/${props.publisherSlug}`}>{props.publisher}</StyledPublisher>
         </StyledGameInfo>
       </StyledHero>
-
     </Fragment>
   );
 })

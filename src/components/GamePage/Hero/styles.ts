@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 export const StyledHero = styled(Box)`
   position: relative;
-  display: flex;
-  justify-content: center;
   width: 100vw;
   height: 47vh;
   overflow: hidden;
@@ -15,6 +13,10 @@ export const StyledHero = styled(Box)`
 export const StyledGameInfo = styled(Box)`
   position: absolute;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--default-width);
+  margin-left: calc(var(--default-cover-image-width) + var(--cover-image-spacing));
   color: var(--color-background);
   font-weight: 600;
 `; 

@@ -14,6 +14,11 @@ export const TwitchModal: React.FC<{onCloseModal: React.MouseEventHandler}> = pr
         <CloseIcon w="1rem" />
       </StyledCloseButton>
     </Flex>
-    <StyledTwitchButton leftIcon={<BsTwitch />}>Login or Create a Twitch Account</StyledTwitchButton>
+    <a href="https://www.igdb.com/oauth/twitch">
+      <StyledTwitchButton 
+        leftIcon={<BsTwitch />}>
+        Login or Create a Twitch Account      
+      </StyledTwitchButton>
+    </a>
   </StyledTwitchBox>
 ) 
