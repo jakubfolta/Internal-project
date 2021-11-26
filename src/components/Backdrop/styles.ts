@@ -12,4 +12,6 @@ export const StyledBackdrop = styled(Box)<{isWhite: boolean}>`
   animation: ${props => !props.isWhite && "appear .5s ease"};
   animation-fill-mode: forwards;
   z-index: 20;
+
+  &.hide { animation: hide .5s ease; }
 `;

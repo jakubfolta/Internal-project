@@ -4,20 +4,42 @@ import styled from "styled-components";
 
 export const StyledTwitchBox = styled(Box)`
   position: absolute;
-  top: -20rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 2.5rem);
   font-size: var(--default-font-size);
   font-weight: 700;
   width: 70vh;
   background-color: var(--color-background);
   border-radius: 6px;
   padding: .6rem;
-  animation: slideDown .5s ease;
-  animation-fill-mode: forwards;
   z-index: 20;
+
+  &.appear { animation: slideDown .5s ease; }
+  &.hide { animation: slideUp 1s ease; }
   
-  @keyframes slideDown { from { top: -20rem } to { top: 2.5rem; } }
+  @keyframes slideDown { 
+    from { 
+      opacity: 0;
+      transform: translate(-50%, -20rem);
+    } 
+    
+    to {
+      opacity: 1;
+      transform: translate(-50%, 2.5rem);
+    } 
+  }
+
+  @keyframes slideUp { 
+    from { 
+      opacity: 1;
+      transform: translate(-50%, 2.5rem);
+    } 
+    
+    to {
+      opacity: 0;
+      transform: translate(-50%, -20rem);
+    } 
+  }
 `;
 
 export const StyledCloseButton = styled.button`
@@ -26,6 +48,7 @@ export const StyledCloseButton = styled.button`
   cursor: pointer;
   opacity: .5;
   transition: opacity .3s;
+  backface-visibility: hidden;
 
   &:hover { opacity: 1; }
 `;

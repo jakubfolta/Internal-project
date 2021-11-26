@@ -3,8 +3,7 @@ import { Image } from "@chakra-ui/image";
 import { getElapsedDaysSincePastDate } from "../../../shared/utility";
 import { Props } from "./interfaces";
 import { StyledEdit, StyledGameInfo, StyledHeading, StyledHero, StyledPublisher, StyledReleasedDate } from "./styles";
-import { Backdrop } from "../../Backdrop/Backdrop";
-import { TwitchModal } from "../TwitchModal/TwitchModal";
+import { Backdrop, TwitchModal } from "../../";
 
 export const Hero: React.FC<Props> = React.memo(props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -22,8 +21,8 @@ export const Hero: React.FC<Props> = React.memo(props => {
     setIsModalVisible(prevState => !prevState);
   };
 
-  const backdrop = isModalVisible && <Backdrop onClickBackdrop={e => toggleModalHandler(e)} />;
-  const twitchModal = isModalVisible && <TwitchModal onCloseModal={e => toggleModalHandler(e)} />
+  const backdrop = <Backdrop isVisible={isModalVisible} onClickBackdrop={e => toggleModalHandler(e)} />;
+  const twitchModal = <TwitchModal isVisible={isModalVisible} onCloseModal={e => toggleModalHandler(e)} />
 
   return (
     <Fragment>

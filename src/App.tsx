@@ -1,9 +1,8 @@
 import React, { Fragment, Suspense } from 'react';
 import GlobalStyle, { theme } from './styles/global';
 import { ChakraProvider } from "@chakra-ui/react";
-import { Layout } from './containers/Layout/Layout';
+import { Layout, MainPage } from './components';
 import { Redirect, Route, Switch } from 'react-router';
-import { MainPage } from './components/MainPage/MainPage';
 
 const GamePageComponent = React.lazy(() => import('./components/GamePage/GamePage') );
 // const PublisherPageComponent = React.lazy(() => import('./components/PublisherPage/PublisherPage') );

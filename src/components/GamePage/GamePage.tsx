@@ -1,12 +1,11 @@
-import { Box } from "@chakra-ui/layout";
 import axios from "axios";
+import { Box } from "@chakra-ui/layout";
 import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router";
 import { setQuery } from "../../network/apiClient";
 import { fetchGameData } from "../../network/lib/games";
 import { IgdbContext } from "../../store/IgdbContext";
-import { Details } from "./Details/Details";
-import { Hero } from "./Hero/Hero";
+import { Details, Hero } from "../";
 import { Game } from "./interfaces";
 
 const GamePage: React.FC = () => {
@@ -29,8 +28,6 @@ const GamePage: React.FC = () => {
       };
       
       console.log(gameData);
-      // console.log(randomScreenshot);
-
       setGame(gameData);
     }))
     .catch(error => {

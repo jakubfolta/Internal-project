@@ -1,7 +1,7 @@
+import React, { useState } from "react"
 import { ButtonGroup } from "@chakra-ui/button"
 import { Image } from "@chakra-ui/image"
 import { Box } from "@chakra-ui/layout"
-import React, { useState } from "react"
 import { Menu, Props } from "./interfaces"
 import { StyledFollowButton, StyledMenuButton, StyledMenuUnderline } from "./styles"
 

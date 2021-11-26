@@ -69,6 +69,10 @@ export const GlobalStyle = createGlobalStyle`
     
     // Animations
     @keyframes appear { to { opacity: .5; } }
+    @keyframes hide { 
+      from { opacity: .5; }
+      to { opacity: 0; } 
+    }
   }
 `;
 

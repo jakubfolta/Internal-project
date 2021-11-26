@@ -3,7 +3,7 @@ import { Flex } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import Icon from "@chakra-ui/icon";
 import { IoMdOptions } from 'react-icons/io';
-import { PersonalizeModal } from "../../PersonalizeModal/PersonalizeModal";
+import { PersonalizeModal } from "../../";
 import { HeadingSpan, MainHeading } from "./styles";
 
 export const WelcomeSection: React.FC = () => {
@@ -36,7 +36,8 @@ export const WelcomeSection: React.FC = () => {
         onClick={toggleModalHandler}>
         Personalize
       </Button>
-      {isModalVisible && <PersonalizeModal 
+      {isModalVisible && <PersonalizeModal
+                            isVisible={isModalVisible}
                             onCloseModal={toggleModalHandler} />}
     </Flex>
   );

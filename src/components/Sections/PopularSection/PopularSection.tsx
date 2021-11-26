@@ -1,7 +1,7 @@
 import { Box, HStack } from "@chakra-ui/layout";
 import { useContext, useState } from "react";
 import { IgdbContext } from "../../../store/IgdbContext";
-import { PopularGame } from "../../PopularGame/PopularGame";
+import { PopularGame } from "../../";
 import { ShiftData } from "./interfaces";
 import { Heading, StyledBox, StyledIconLeft, StyledIconRight, StyledSpan } from "./styles";
 
