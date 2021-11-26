@@ -32,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-primary: #323A45;
     --color-background: #FAFAFA;
     --color-white: #FFFFFF;
+    --color-white-2: #ECF0F1;
     --color-black: #444;
     --color-black-2: #555;
     --color-grey: hsl(0, 0%, 90%);
@@ -41,6 +42,8 @@ export const GlobalStyle = createGlobalStyle`
     --color-grey-5: #BDC3C7;
     --color-grey-6: #e6e6e6;
     --color-grey-7: #bfbfbf;
+    --color-edit-bg: #f7f8fa;
+    --color-edit: #4E4E4E;
     --color-accent: #9047FF;
     --color-accent-2: #9147ff;
     --color-accent-3: #f1c40f;
@@ -53,6 +56,9 @@ export const GlobalStyle = createGlobalStyle`
     --medium-font-size-2: 2rem;
     --big-font-size: 2.4rem;
     --xl-font-size: 2.8rem;
+    --game-heading-size: 6rem;
+    // Animations
+    @keyframes appear { to { opacity: .5; } }
   }
 `;
 

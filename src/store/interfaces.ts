@@ -1,25 +1,14 @@
+import { Genres, ParentPlatforms, Platforms } from "../shared/api.interfaces";
+
 export interface Context {
   games: {
     id: number;
     background_image: string;
-    genres: {
-      id: number;
-      name: string;
-    }[];
+    genres: Genres[];
     metacritic: number;
     name: string;
-    parent_platforms: {
-      platform: {
-        id: number;
-        name: string;
-      }
-    }[];
-    platforms: {
-      platform: {
-        id: number;
-        name: string;
-      }
-    }[];
+    parent_platforms: ParentPlatforms[];
+    platforms: Platforms[];
     playtime: number;
     rating: number;
     released: string;

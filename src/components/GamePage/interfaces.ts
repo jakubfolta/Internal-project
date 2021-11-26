@@ -1,12 +1,10 @@
+import { Developers, Publishers, Screenshots } from "../../shared/api.interfaces";
+
 export interface Game {
   achievements_count: number;
   background_image: string;
   description_raw: string;
-  developers: {
-    image_background: string;
-    name: string;
-    slug: string;
-  }[];
+  developers: Developers[];
   genres: {
     name: string;
   }[];
@@ -18,20 +16,12 @@ export interface Game {
     platform: { name: string; };
   }[];
   playtime: number;
-  publishers: {
-    name: string;
-    slug: string;
-  }[];
+  publishers: Publishers[];
   random_screenshot: number;
   rating: number;
   released: string;
-  screenshots: {
-    image: string;
-    is_deleted: boolean;
-  }[];
-  series: {
-
-  }[];
+  screenshots: Screenshots[];
+  series: {}[];
   slug: string;
   website: string;
 }

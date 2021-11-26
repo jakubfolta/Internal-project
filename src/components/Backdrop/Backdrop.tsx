@@ -1,16 +1,9 @@
-import { Box } from "@chakra-ui/layout";
 import React from "react";
+import { Props } from "./interfaces";
+import { StyledBackdrop } from "./styles";
 
-export const Backdrop: React.FC<{onClickBackdrop: React.MouseEventHandler}> = props => (
-  <Box
-    position="absolute"
-    top="0"
-    left="0"
-    height="100vh"
-    width="100%"
-    bg="var(--color-white)"
-    zIndex="20"
-
-    onClick={props.onClickBackdrop}>
-  </Box>
+export const Backdrop: React.FC<Props> = props => (
+  <StyledBackdrop
+    isWhite={props.isWhite}
+    onClick={props.onClickBackdrop} />
 ) 

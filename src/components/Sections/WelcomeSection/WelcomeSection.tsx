@@ -9,7 +9,7 @@ import { HeadingSpan, MainHeading } from "./styles";
 export const WelcomeSection: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const toggleModalHandler = () => setIsModalVisible((currentState) => !currentState);
+  const toggleModalHandler = () => setIsModalVisible(prevState => !prevState);
 
   return (
     <Flex
@@ -21,12 +21,12 @@ export const WelcomeSection: React.FC = () => {
       </MainHeading>
       <Button
         rightIcon={<Icon as={IoMdOptions}
-                        color="var(--color-accent-dark)" />}
+        color="var(--color-accent-dark)" />}
         padding="3rem 0"
         marginTop="-1.3rem"
         fontSize="var(--medium-font-size-2)"
         fontWeight="300"
-        bg="var(--color-white)"
+        bg="var(--color-background)"
         color="var(--color-grey-2)"
         cursor="pointer"
         _focus={{boxShadow: "none"}}
@@ -37,7 +37,7 @@ export const WelcomeSection: React.FC = () => {
         Personalize
       </Button>
       {isModalVisible && <PersonalizeModal 
-                      onCloseModal={toggleModalHandler} />}
+                            onCloseModal={toggleModalHandler} />}
     </Flex>
   );
 }
