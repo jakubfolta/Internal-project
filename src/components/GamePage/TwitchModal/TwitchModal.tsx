@@ -18,6 +18,7 @@ export const TwitchModal: React.FC<{onCloseModal: React.MouseEventHandler, isVis
     timeout={animationTiming}
     classNames={{
       enterActive: 'appear',
+      enterDone: 'appear',
       exitActive: 'hide'}}>
     <StyledTwitchBox>
       <Flex 

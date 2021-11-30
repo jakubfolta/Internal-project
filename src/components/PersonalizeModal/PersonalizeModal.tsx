@@ -20,7 +20,10 @@ export const PersonalizeModal: React.FC<{onCloseModal: () => void, isVisible: bo
 
   return (
     <Fragment>
-      <Backdrop isVisible={props.isVisible} isWhite onClickBackdrop={props.onCloseModal} />
+      <Backdrop 
+        isVisible={props.isVisible}
+        iswhite
+        onClickBackdrop={props.onCloseModal} />
       <Flex
         position="absolute"
         top="50vh"

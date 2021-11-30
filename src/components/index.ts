@@ -1,5 +1,6 @@
 export { Backdrop } from './Backdrop/Backdrop'; 
 export { Details } from './GamePage/Details/Details'; 
+export { About } from './GamePage/Details/About/About';
 export { Hero } from './GamePage/Hero/Hero'; 
 export { TwitchModal } from './GamePage/TwitchModal/TwitchModal'; 
 export { Logo } from './Logo/Logo'; 

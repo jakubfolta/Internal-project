@@ -16,7 +16,7 @@ export const Backdrop: React.FC<Props> = props => (
     timeout={animationTiming}
     classNames={{exitActive: 'hide'}}>
     <StyledBackdrop
-      isWhite={props.isWhite}
+      iswhite={props.iswhite}
       onClick={props.onClickBackdrop} />
   </CSSTransition>
 ) 

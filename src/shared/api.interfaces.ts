@@ -17,12 +17,14 @@ export interface Publishers {
 export interface Genres {
   id: number;
   name: string;
+  slug: string;
 }
 
 export interface ParentPlatforms {
   platform: {
     id: number;
     name: string;
+    slug: string;
   }
 }
 
@@ -31,4 +33,9 @@ export interface Platforms {
     id: number;
     name: string;
   }
+}
+
+export interface Series {
+  name: string;
+  slug: string;
 }

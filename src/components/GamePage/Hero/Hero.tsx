@@ -14,7 +14,7 @@ export const Hero: React.FC<Props> = React.memo(props => {
   const year = new Date(releaseDate).getFullYear(); 
   const elapsedDays: string | number = getElapsedDaysSincePastDate(releaseDate, true);
   
-  const transformedDate = releaseDate && `${day} ${month}, ${year} (${elapsedDays})`;
+  const transformedDate = `${day} ${month}, ${year} (${elapsedDays})`;
 
   const toggleModalHandler = (e: React.MouseEvent) => {
     e.preventDefault(); 
@@ -40,9 +40,9 @@ export const Hero: React.FC<Props> = React.memo(props => {
         <StyledGameInfo>
           <StyledHeading>
             {props.title}
-            {releaseDate && <StyledEdit 
-                              href="https://www.igdb.com/dialog/login"
-                              onClick={toggleModalHandler}>Edit</StyledEdit>}
+            <StyledEdit 
+              href="https://www.igdb.com/dialog/login"
+              onClick={toggleModalHandler}>Edit</StyledEdit>
           </StyledHeading>
           <StyledReleasedDate>{transformedDate}</StyledReleasedDate>
           <StyledPublisher to={`/companies/${props.publisherSlug}`}>{props.publisher}</StyledPublisher>

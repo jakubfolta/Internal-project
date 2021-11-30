@@ -3,9 +3,10 @@ import { Box } from "@chakra-ui/layout";
 import styled from "styled-components";
 
 export const StyledTwitchBox = styled(Box)`
+  &&& { animation-fill-mode: forwards; }
+
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 2.5rem);
   font-size: var(--default-font-size);
   font-weight: 700;
   width: 70vh;
@@ -13,7 +14,7 @@ export const StyledTwitchBox = styled(Box)`
   border-radius: 6px;
   padding: .6rem;
   z-index: 20;
-
+  
   &.appear { animation: slideDown .5s ease; }
   &.hide { animation: slideUp 1s ease; }
   

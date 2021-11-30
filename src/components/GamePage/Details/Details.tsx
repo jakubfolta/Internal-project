@@ -4,8 +4,10 @@ import { Image } from "@chakra-ui/image"
 import { Box } from "@chakra-ui/layout"
 import { Menu, Props } from "./interfaces"
 import { StyledFollowButton, StyledMenuButton, StyledMenuUnderline } from "./styles"
+import { About } from "../.."
 
 export const Details: React.FC<Props> = props => {
+  const [isReadMoreClicked, setIsReadMoreClicked] = useState<boolean>(false);
   const [menu, setMenu] = useState<Menu[]>([
     {
       name: "About",
@@ -46,6 +48,8 @@ export const Details: React.FC<Props> = props => {
     
     return position;
   };
+
+  const readMoreClickHandler = () => setIsReadMoreClicked(true);
   
   const buttons = menu.map(button => (
     <StyledMenuButton
@@ -60,7 +64,7 @@ export const Details: React.FC<Props> = props => {
       position="relative"
       display="flex"
       w="var(--default-width)"
-      m="auto">
+      m="0 auto 2rem">
       <Box
         position="relative"
         top="-25rem"
@@ -84,6 +88,33 @@ export const Details: React.FC<Props> = props => {
             <StyledMenuUnderline position={getActiveButtonPosition} />
           </ButtonGroup>
         </Box>
+
+        {menu.map(item => {
+          let details;
+          
+          if (item.name === "About" && item.status) {
+            const trimmedDescription = `${props.description.substr(0, 430)}...`;
+
+            details = (
+              <About
+                key={item.id}
+                nameSlug={props.nameSlug}
+                genres={props.genres}
+                genreSlug={props.genreSlug}
+                platforms={props.platforms}
+                description={isReadMoreClicked ? props.description : trimmedDescription}
+                versions={props.versions}
+                readMore={isReadMoreClicked}
+                onReadMoreClick={readMoreClickHandler}
+                website={props.website}
+                reddit={props.reddit}  />
+            )
+          }
+
+          // if (item.name === "Add To" && item.status) return <AddTo />;
+          // return <Share />;
+          return details;
+        })}
       </Box>
     </Box>
   );
