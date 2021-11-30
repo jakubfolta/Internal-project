@@ -2,6 +2,7 @@ import { CSSObject } from "@chakra-ui/styled-system";
 
 export interface Props {
   color?: string;
+  m?: string;
   p?: string;
   marginLeft?: string;
   bg?: string;

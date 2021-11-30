@@ -4,7 +4,7 @@ import { Image } from "@chakra-ui/image"
 import { Box } from "@chakra-ui/layout"
 import { Menu, Props } from "./interfaces"
 import { StyledFollowButton, StyledMenuButton, StyledMenuUnderline } from "./styles"
-import { About } from "../.."
+import { About, AddTo } from "../.."
 
 export const Details: React.FC<Props> = props => {
   const [isReadMoreClicked, setIsReadMoreClicked] = useState<boolean>(false);
@@ -111,7 +111,7 @@ export const Details: React.FC<Props> = props => {
             )
           }
 
-          // if (item.name === "Add To" && item.status) return <AddTo />;
+          if (item.name === "Add To" && item.status) return <AddTo />;
           // return <Share />;
           return details;
         })}

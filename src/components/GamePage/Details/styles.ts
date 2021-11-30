@@ -5,6 +5,7 @@ export const StyledFollowButton = styled.button`
   margin-top: 2rem;
   padding: .7rem 0;
   font-size: var(--small-font-size);
+  font-weight: 600;
   color: var(--color-white);
   background: var(--color-accent-2);
   border: 1px solid var(--color-accent-2);
