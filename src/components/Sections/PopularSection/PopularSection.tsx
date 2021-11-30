@@ -1,7 +1,7 @@
 import { Box, HStack } from "@chakra-ui/layout";
 import { useContext, useState } from "react";
 import { IgdbContext } from "../../../store/IgdbContext";
-import { PopularGame } from "../../PopularGame/PopularGame";
+import { PopularGame } from "../../";
 import { ShiftData } from "./interfaces";
 import { Heading, StyledBox, StyledIconLeft, StyledIconRight, StyledSpan } from "./styles";
 
@@ -22,7 +22,7 @@ export const PopularSection: React.FC = () => {
 
     updatedGames = direction === 'left'
       ? [...copiedGame, ...fetchedGames]
-      : [...fetchedGames, ...copiedGame]
+      : [...fetchedGames, ...copiedGame];
       
       igdbContext.setGames(updatedGames);
     }
@@ -33,7 +33,7 @@ export const PopularSection: React.FC = () => {
     
     const slidesContainer = document.getElementById('slides_container')!;
     const slideWidth = slidesContainer?.offsetWidth / fetchedGames.length;
-    const slideDirection= e.currentTarget.getAttribute('id')!
+    const slideDirection= e.currentTarget.getAttribute('id')!;
     
     const translateValue = slideDirection === 'left'
     ? shiftValue + slideWidth
@@ -59,7 +59,6 @@ export const PopularSection: React.FC = () => {
     <Box>
       <Heading>Popular games right now</Heading>
       <StyledBox>
-        
         <StyledSpan id="left" onClick={(e) => slideHandler(e)}>
           <StyledIconLeft />
         </StyledSpan>

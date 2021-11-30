@@ -1,13 +1,13 @@
-import { Box } from "@chakra-ui/layout";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react"
+import { Box } from "@chakra-ui/layout";
+import { Fragment, useContext, useEffect, useState } from "react"
 import { useParams } from "react-router";
 import { setQuery } from "../../network/apiClient";
 import { fetchGameData } from "../../network/lib/games";
 import { IgdbContext } from "../../store/IgdbContext";
-import { Details } from "./Details/Details";
-import { Hero } from "./Hero/Hero";
+import { Details, Hero } from "../";
 import { Game } from "./interfaces";
+import { Genres, ParentPlatforms, Series } from "../../shared/api.interfaces";
 
 const GamePage: React.FC = () => {
   const [game, setGame] = useState<Game>();
@@ -28,9 +28,7 @@ const GamePage: React.FC = () => {
         series: responses[2].results
       };
       
-      // console.log(gameData);
-      // console.log(randomScreenshot);
-
+      console.log(gameData);
       setGame(gameData);
     }))
     .catch(error => {
@@ -40,7 +38,7 @@ const GamePage: React.FC = () => {
     })
   }, []);
 
-  return (
+  const components = game && (
     <Box>
       <Hero 
         alt={game?.name as string}
@@ -48,10 +46,24 @@ const GamePage: React.FC = () => {
         title={game?.name as string}
         release={game?.released as string}
         publisher={game?.publishers[0].name as string}
-        publisherSlug={game?.publishers[0].slug as string} />
-      <Details></Details>
-
+        publisherSlug={game?.publishers[0].slug as string}  />
+      <Details 
+        src={game?.background_image as string}
+        nameSlug={game?.slug as string}
+        genres={game?.genres as Genres[]}
+        genreSlug={game?.genres[0].slug as string}
+        platforms={game?.platforms as ParentPlatforms[]}
+        description={game?.description_raw as string}
+        versions={game?.series as Series[]}  
+        website={game?.website as string}
+        reddit={game?.reddit_url as string}  />
     </Box>
+  );
+  
+  return (
+    <Fragment>
+      {components}
+    </Fragment>
   );
 }
 

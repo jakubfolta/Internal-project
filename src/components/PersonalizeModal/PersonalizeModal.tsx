@@ -1,12 +1,10 @@
 import { Fragment, useState } from "react";
 import { Box, Flex } from "@chakra-ui/layout";
 import { CloseIcon } from "@chakra-ui/icons";
-import { Backdrop } from "../Backdrop/Backdrop";
-import { Checkbox } from "../UI/Checkbox/Checkbox";
-import { DefaultButton } from "../UI/Button/Button";
+import { Backdrop, Checkbox, DefaultButton } from "../";
 import { Description, Heading } from "./styles";
 
-export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
+export const PersonalizeModal: React.FC<{onCloseModal: () => void, isVisible: boolean}> = props => {
   const [platforms] = useState([
     'PC (Microsoft Windows)',
     'Xbox One',
@@ -22,7 +20,10 @@ export const PersonalizeModal: React.FC<{onCloseModal: () => void}> = props => {
 
   return (
     <Fragment>
-      <Backdrop isWhite onClickBackdrop={props.onCloseModal} />
+      <Backdrop 
+        isVisible={props.isVisible}
+        iswhite
+        onClickBackdrop={props.onCloseModal} />
       <Flex
         position="absolute"
         top="50vh"

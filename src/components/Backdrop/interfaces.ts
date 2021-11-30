@@ -1,4 +1,5 @@
 export interface Props {
-  isWhite?: boolean;
+  iswhite?: boolean;
+  isVisible: boolean;
   onClickBackdrop: React.MouseEventHandler;
 }

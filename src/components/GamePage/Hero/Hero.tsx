@@ -3,8 +3,7 @@ import { Image } from "@chakra-ui/image";
 import { getElapsedDaysSincePastDate } from "../../../shared/utility";
 import { Props } from "./interfaces";
 import { StyledEdit, StyledGameInfo, StyledHeading, StyledHero, StyledPublisher, StyledReleasedDate } from "./styles";
-import { Backdrop } from "../../Backdrop/Backdrop";
-import { TwitchModal } from "../TwitchModal/TwitchModal";
+import { Backdrop, TwitchModal } from "../../";
 
 export const Hero: React.FC<Props> = React.memo(props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -15,15 +14,15 @@ export const Hero: React.FC<Props> = React.memo(props => {
   const year = new Date(releaseDate).getFullYear(); 
   const elapsedDays: string | number = getElapsedDaysSincePastDate(releaseDate, true);
   
-  const transformedDate = releaseDate && `${day} ${month}, ${year} (${elapsedDays})`;
+  const transformedDate = `${day} ${month}, ${year} (${elapsedDays})`;
 
   const toggleModalHandler = (e: React.MouseEvent) => {
     e.preventDefault(); 
     setIsModalVisible(prevState => !prevState);
   };
 
-  const backdrop = isModalVisible && <Backdrop onClickBackdrop={e => toggleModalHandler(e)} />;
-  const twitchModal = isModalVisible && <TwitchModal onCloseModal={e => toggleModalHandler(e)} />
+  const backdrop = <Backdrop isVisible={isModalVisible} onClickBackdrop={e => toggleModalHandler(e)} />;
+  const twitchModal = <TwitchModal isVisible={isModalVisible} onCloseModal={e => toggleModalHandler(e)} />
 
   return (
     <Fragment>
@@ -41,15 +40,14 @@ export const Hero: React.FC<Props> = React.memo(props => {
         <StyledGameInfo>
           <StyledHeading>
             {props.title}
-            {releaseDate && <StyledEdit 
-                              href="https://www.igdb.com/dialog/login"
-                              onClick={toggleModalHandler}>Edit</StyledEdit>}
+            <StyledEdit 
+              href="https://www.igdb.com/dialog/login"
+              onClick={toggleModalHandler}>Edit</StyledEdit>
           </StyledHeading>
           <StyledReleasedDate>{transformedDate}</StyledReleasedDate>
           <StyledPublisher to={`/companies/${props.publisherSlug}`}>{props.publisher}</StyledPublisher>
         </StyledGameInfo>
       </StyledHero>
-
     </Fragment>
   );
 })

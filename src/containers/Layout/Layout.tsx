@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Header } from '../Header/Header';
+import { Header } from '../../components';
     
 export const Layout: React.FC = props => (
   <Fragment>

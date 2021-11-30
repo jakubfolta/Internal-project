@@ -9,6 +9,7 @@ export const DefaultButton: React.FC<Props> = props => (
   <Button
     alignSelf="stretch"
     p={props.p || "auto"}
+    m={props.m}
     marginLeft={props.marginLeft || "auto"}
     height="auto"
     cursor="pointer"
