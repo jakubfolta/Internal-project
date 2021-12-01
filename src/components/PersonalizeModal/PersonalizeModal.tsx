@@ -22,7 +22,7 @@ export const PersonalizeModal: React.FC<{onCloseModal: () => void, isVisible: bo
     <Fragment>
       <Backdrop 
         isVisible={props.isVisible}
-        iswhite
+        $isWhite
         onClickBackdrop={props.onCloseModal} />
       <Flex
         position="absolute"

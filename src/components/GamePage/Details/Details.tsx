@@ -5,6 +5,7 @@ import { Box } from "@chakra-ui/layout"
 import { Menu, Props } from "./interfaces"
 import { StyledFollowButton, StyledMenuButton, StyledMenuUnderline } from "./styles"
 import { About, AddTo } from "../.."
+import { Share } from "./Share/Share"
 
 export const Details: React.FC<Props> = props => {
   const [isReadMoreClicked, setIsReadMoreClicked] = useState<boolean>(false);
@@ -59,6 +60,34 @@ export const Details: React.FC<Props> = props => {
       onClick={e => onSwitchActiveButtonHandler(e)}>{button.name}</StyledMenuButton>
   ))
 
+  const details = menu.map(item => {
+    let details;
+    
+    if (item.name === "About" && item.status) {
+      const trimmedDescription = `${props.description.substr(0, 430)}...`;
+
+      details = (
+        <About
+          key={item.id}
+          nameSlug={props.nameSlug}
+          genres={props.genres}
+          genreSlug={props.genreSlug}
+          platforms={props.platforms}
+          description={isReadMoreClicked ? props.description : trimmedDescription}
+          versions={props.versions}
+          readMore={isReadMoreClicked}
+          onReadMoreClick={readMoreClickHandler}
+          website={props.website}
+          reddit={props.reddit}  />
+      )
+    }
+    
+    if (item.name === "Add To" && item.status) details = <AddTo key={item.id}  />;
+    if (item.name === "Share" && item.status) details = <Share key={item.id}  />;
+    
+    return details;
+  });
+
   return (
     <Box
       position="relative"
@@ -88,33 +117,8 @@ export const Details: React.FC<Props> = props => {
             <StyledMenuUnderline position={getActiveButtonPosition} />
           </ButtonGroup>
         </Box>
-
-        {menu.map(item => {
-          let details;
-          
-          if (item.name === "About" && item.status) {
-            const trimmedDescription = `${props.description.substr(0, 430)}...`;
-
-            details = (
-              <About
-                key={item.id}
-                nameSlug={props.nameSlug}
-                genres={props.genres}
-                genreSlug={props.genreSlug}
-                platforms={props.platforms}
-                description={isReadMoreClicked ? props.description : trimmedDescription}
-                versions={props.versions}
-                readMore={isReadMoreClicked}
-                onReadMoreClick={readMoreClickHandler}
-                website={props.website}
-                reddit={props.reddit}  />
-            )
-          }
-
-          if (item.name === "Add To" && item.status) return <AddTo />;
-          // return <Share />;
-          return details;
-        })}
+        {details}
+        
       </Box>
     </Box>
   );

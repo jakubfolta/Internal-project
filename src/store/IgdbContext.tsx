@@ -28,7 +28,7 @@ export const IgdbContextProvider: React.FC = props => {
       const lastGame = shuffledGames.splice(-1, 1);
       const updatedGames = [...lastGame, ...shuffledGames];
 
-      // console.log(lastSixMonthsPopularGames);
+      console.log(lastSixMonthsPopularGames);
       
       setFetchedGames(updatedGames);
     })

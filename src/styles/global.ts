@@ -56,6 +56,9 @@ export const GlobalStyle = createGlobalStyle`
     --color-accent-dark: #7214FF;
     --color-accent-dark-2: #7314FF;
     --color-accent-dark-3: #6000ef;
+    --color-facebook: #3b5998;
+    --color-twitter: #55ACEE;
+    --color-google: #d34836;
     
     // Fonts
     --xsmall-font-size: 1.2rem;

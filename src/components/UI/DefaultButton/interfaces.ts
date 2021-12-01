@@ -1,6 +1,7 @@
 import { CSSObject } from "@chakra-ui/styled-system";
 
 export interface Props {
+  alignSelf?: string;
   color?: string;
   m?: string;
   p?: string;

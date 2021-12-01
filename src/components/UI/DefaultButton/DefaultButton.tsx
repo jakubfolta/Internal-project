@@ -7,10 +7,10 @@ const defaultHoverValue = {bg: "var(--color-accent-dark)"};
 
 export const DefaultButton: React.FC<Props> = props => (
   <Button
-    alignSelf="stretch"
+    alignSelf={props.alignSelf || "stretch"}
     p={props.p || "auto"}
-    m={props.m}
     marginLeft={props.marginLeft || "auto"}
+    m={props.m}
     height="auto"
     cursor="pointer"
     borderRadius={props.borderRadius || "0"}
