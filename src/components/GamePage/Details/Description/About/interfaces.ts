@@ -1,4 +1,4 @@
-import { Genres, ParentPlatforms, Series } from "../../../../shared/api.interfaces";
+import { Genres, ParentPlatforms, Series } from "../../../../../shared/api.interfaces";
 
 export interface AboutProps {
   nameSlug: string;
@@ -6,7 +6,8 @@ export interface AboutProps {
   genreSlug: string;
   platforms: ParentPlatforms[];
   versions: Series[];
-  description: string;
+  descriptionVersion?: string;
+  description?: string;
   readMore?: boolean;
   website: string;
   reddit: string;

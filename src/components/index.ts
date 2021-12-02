@@ -1,8 +1,10 @@
 export { Backdrop } from './Backdrop/Backdrop'; 
 export { Details } from './GamePage/Details/Details'; 
-export { About } from './GamePage/Details/About/About';
-export { AddTo } from './GamePage/Details/AddTo/AddTo';
-export { Share } from './GamePage/Details/Share/Share';
+export { About } from './GamePage/Details/Description/About/About';
+export { AddTo } from './GamePage/Details/Description/AddTo/AddTo';
+export { CoverImage } from './GamePage/Details/CoverImage/CoverImage';
+export { Description } from './GamePage/Details/Description/Description';
+export { Share } from './GamePage/Details/Description/Share/Share';
 export { Hero } from './GamePage/Hero/Hero'; 
 export { TwitchModal } from './GamePage/TwitchModal/TwitchModal'; 
 export { Logo } from './Logo/Logo'; 

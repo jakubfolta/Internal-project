@@ -1,11 +1,7 @@
 import React, { useState } from "react"
-import { ButtonGroup } from "@chakra-ui/button"
-import { Image } from "@chakra-ui/image"
 import { Box } from "@chakra-ui/layout"
 import { Menu, Props } from "./interfaces"
-import { StyledFollowButton, StyledMenuButton, StyledMenuUnderline } from "./styles"
-import { About, AddTo } from "../.."
-import { Share } from "./Share/Share"
+import { CoverImage, Description } from "../.."
 
 export const Details: React.FC<Props> = props => {
   const [isReadMoreClicked, setIsReadMoreClicked] = useState<boolean>(false);
@@ -51,42 +47,6 @@ export const Details: React.FC<Props> = props => {
   };
 
   const readMoreClickHandler = () => setIsReadMoreClicked(true);
-  
-  const buttons = menu.map(button => (
-    <StyledMenuButton
-      key={button.id}
-      active={button.status}
-      id={button.id}
-      onClick={e => onSwitchActiveButtonHandler(e)}>{button.name}</StyledMenuButton>
-  ))
-
-  const details = menu.map(item => {
-    let details;
-    
-    if (item.name === "About" && item.status) {
-      const trimmedDescription = `${props.description.substr(0, 430)}...`;
-
-      details = (
-        <About
-          key={item.id}
-          nameSlug={props.nameSlug}
-          genres={props.genres}
-          genreSlug={props.genreSlug}
-          platforms={props.platforms}
-          description={isReadMoreClicked ? props.description : trimmedDescription}
-          versions={props.versions}
-          readMore={isReadMoreClicked}
-          onReadMoreClick={readMoreClickHandler}
-          website={props.website}
-          reddit={props.reddit}  />
-      )
-    }
-    
-    if (item.name === "Add To" && item.status) details = <AddTo key={item.id}  />;
-    if (item.name === "Share" && item.status) details = <Share key={item.id}  />;
-    
-    return details;
-  });
 
   return (
     <Box
@@ -94,32 +54,24 @@ export const Details: React.FC<Props> = props => {
       display="flex"
       w="var(--default-width)"
       m="0 auto 2rem">
-      <Box
-        position="relative"
-        top="-25rem"
-        w="var(--default-cover-image-width)"
-        marginRight="var(--cover-image-spacing)">
-        <Image
-          w="100%"
-          h="35rem"
-          fit="cover"
-          src={props.src} />
-        <StyledFollowButton>Follow</StyledFollowButton>
-      </Box>
+      <CoverImage src={props.src} />
+      <Description
+        nameSlug={props.nameSlug}
+        genres={props.genres}
+        genreSlug={props.genreSlug}
+        platforms={props.platforms}
+        versions={props.versions}
+        description={props.description as string}
+        website={props.website}
+        reddit={props.reddit}
+        menu={menu}
+        isReadMoreClicked={isReadMoreClicked}
+        onMenuButtonClick={onSwitchActiveButtonHandler}
+        onReadMoreClick={readMoreClickHandler}
+        buttonPosition={getActiveButtonPosition}  />
       
-      <Box flex="1">
-        <Box bg="var(--color-white)">
-          <ButtonGroup
-            position="relative"
-            spacing="0px"
-            variant="ghost">
-            {buttons}
-            <StyledMenuUnderline position={getActiveButtonPosition} />
-          </ButtonGroup>
-        </Box>
-        {details}
-        
-      </Box>
+       {/* Rating component */}
+      
     </Box>
   );
 }

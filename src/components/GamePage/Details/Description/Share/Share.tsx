@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/layout";
 import { HStack, InputGroup, InputLeftAddon, Input } from "@chakra-ui/react";
 import { FaFacebook, FaGooglePlus, FaLink, FaTwitter } from "react-icons/fa";
-import { DefaultButton } from "../../..";
+import { DefaultButton } from "../../../..";
 
 export const Share: React.FC = props => (
   <Box>
@@ -44,15 +44,16 @@ export const Share: React.FC = props => (
 
     <InputGroup>
       <InputLeftAddon
-        p="1.5rem 1.2rem" 
+        p="1.5rem 1.2rem"
         color="var(--color-black-2)"
         bg="var(--color-grey-3)"
-        children={<FaLink />} 
+        children={<FaLink />}
         fontSize="1.5rem"  />
-      <Input 
+      <Input
+        readOnly
         onClick={e => e.currentTarget.select()}
         type="text"
-        value="https://www.igdb.com/g/2oku"
+        value={window.location.href}
         p="1.4rem"
         fontSize="var(--small-font-size)"
         border="2px"
