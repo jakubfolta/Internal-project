@@ -27,7 +27,8 @@ const renderComponents = (game: Game) => (
       description={game?.description_raw as string}
       versions={game?.series as Series[]}  
       website={game?.website as string}
-      reddit={game?.reddit_url as string}  />
+      reddit={game?.reddit_url as string}
+      metacritic={game?.metacritic}  />
   </Box>
 );
 

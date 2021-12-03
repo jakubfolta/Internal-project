@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Box } from "@chakra-ui/layout"
 import { Menu, Props } from "./interfaces"
-import { CoverImage, Description } from "../.."
+import { CoverImage, Description, Rating } from "../.."
 
 export const Details: React.FC<Props> = props => {
   const [isReadMoreClicked, setIsReadMoreClicked] = useState<boolean>(false);
@@ -70,7 +70,7 @@ export const Details: React.FC<Props> = props => {
         onReadMoreClick={readMoreClickHandler}
         buttonPosition={getActiveButtonPosition}  />
       
-       {/* Rating component */}
+      <Rating  metacritic={props.metacritic}  />
       
     </Box>
   );

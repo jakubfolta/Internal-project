@@ -1,12 +1,15 @@
-export { Backdrop } from './Backdrop/Backdrop'; 
-export { Details } from './GamePage/Details/Details'; 
-export { About } from './GamePage/Details/Description/About/About';
-export { AddTo } from './GamePage/Details/Description/AddTo/AddTo';
-export { CoverImage } from './GamePage/Details/CoverImage/CoverImage';
-export { Description } from './GamePage/Details/Description/Description';
-export { Share } from './GamePage/Details/Description/Share/Share';
+export { Backdrop } from './Backdrop/Backdrop';
+
 export { Hero } from './GamePage/Hero/Hero'; 
 export { TwitchModal } from './GamePage/TwitchModal/TwitchModal'; 
+export { Details } from './GamePage/Details/Details'; 
+export { CoverImage } from './GamePage/Details/CoverImage/CoverImage';
+export { Description } from './GamePage/Details/Description/Description';
+export { About } from './GamePage/Details/Description/About/About';
+export { AddTo } from './GamePage/Details/Description/AddTo/AddTo';
+export { Share } from './GamePage/Details/Description/Share/Share';
+export { Rating } from './GamePage/Details/Rating/Rating';
+
 export { Logo } from './Logo/Logo'; 
 export { MainPage } from './MainPage/MainPage'; 
 export { Navigation } from './Navigation/Navigation'; 
