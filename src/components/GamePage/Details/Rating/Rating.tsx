@@ -21,21 +21,16 @@ export const Rating: React.FC<Props> = props => {
     
     return [timingForFirstPart, timingForRemainedPart];    
     // console.log(timingForFirstPart, timingForRemainedPart);
-    // fullTime = fullDegrees
-    // x = 180degrees
-    
-    // x = lastDegrees
-    
   }
 
-  const [fullDegrees, firstDegrees, secondDegrees]: number[] = transformRatingToDegrees(props.metacritic);
   const time = 2;
-  
-  const [firstPartTiming, secondPartTiming] = adjustAnimationTiming();
+  const [fullDegrees, firstDegrees, secondDegrees]: number[] = transformRatingToDegrees(props.metacritic);
+  const [firstPartTiming, secondPartTiming]: number[] = adjustAnimationTiming();
 
   console.log(firstPartTiming, secondPartTiming);
 
   console.log(firstDegrees, secondDegrees);
+
   return (
     <Box marginLeft="var(--cover-image-spacing)">
 
@@ -44,18 +39,22 @@ export const Rating: React.FC<Props> = props => {
         top="calc((var(--circle-rating-size) ) / 2 * -1)">
         <StyledCircleRating metacritic={props.metacritic}  />
         <StyledFirstHalfBar>
-          <StyledFirstProgressBar degrees={firstDegrees}  />  
+          <StyledFirstProgressBar
+            degrees={firstDegrees}
+            time={firstPartTiming}  />  
         </StyledFirstHalfBar>
         
         <StyledSecondHalfBar>
-          <StyledSecondProgressBar degrees={secondDegrees}  />    
+          <StyledSecondProgressBar
+            degrees={secondDegrees}
+            time={secondPartTiming}
+            elapsedTime={firstPartTiming}  />    
         </StyledSecondHalfBar>
       </Box>
 
       <Box
         h="10rem"
-        borderBottom="1px solid var(--color-grey-3)"
-        >
+        borderBottom="1px solid var(--color-grey-3)">
 
       </Box>
 

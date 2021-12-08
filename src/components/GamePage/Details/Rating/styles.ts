@@ -43,36 +43,32 @@ export const StyledSecondHalfBar = styled.div`
 const progress = css`
   width: 100%;
   height: 100%;
-  background-color: blue;
+  background-color: var(--color-rating);
   border-radius: 50%;
 `;
 
-export const StyledFirstProgressBar = styled.div<{degrees: number}>`
+export const StyledFirstProgressBar = styled.div<{degrees: number, time: number}>`
   ${progress}
   clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
-  animation: rotateFirstHalf var(--rating-animation-time) var(--rating-animation-delay) linear;
+  animation: rotateFirstHalf ${props => props.time}s var(--rating-animation-delay) linear;
   animation-fill-mode: forwards;
   
   @keyframes rotateFirstHalf {      
-    100% {
-      transform: rotate(${props => props.degrees}deg);
-    }
+    100% { transform: rotate(${props => props.degrees}deg); }
   }
 `;
 
-export const StyledSecondProgressBar = styled.div<{degrees: number}>`
+export const StyledSecondProgressBar = styled.div<{degrees: number, time: number, elapsedTime: number}>`
   ${progress}
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
   
-  ${props => props.degrees && css`  
-    animation: rotateSecondHalf calc(var(--rating-animation-time) / 2) var(--rating-animation-delay) linear;
+  ${props => props.degrees && css`
+    animation: rotateSecondHalf ${props.time}s linear;
     animation-fill-mode: forwards;
-    animation-delay: calc(var(--rating-animation-time) + var(--rating-animation-delay));
+    animation-delay: calc(${props.elapsedTime}s + var(--rating-animation-delay));
 
-    @keyframes rotateSecondHalf {      
-      100% {
-        transform: rotate(${props.degrees}deg);
-      }
+    @keyframes rotateSecondHalf {
+      100% { transform: rotate(${props.degrees}deg); }
     }
   `}
 `;

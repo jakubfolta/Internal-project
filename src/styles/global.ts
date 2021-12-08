@@ -36,7 +36,6 @@ export const GlobalStyle = createGlobalStyle`
     --menu-button-width: 8rem;
     --circle-rating-size: 12rem;
     --progress-bar-width: 2rem;
-    --rating-animation-time: 2s;
     --rating-animation-delay: 1s;
     
     // Colors
