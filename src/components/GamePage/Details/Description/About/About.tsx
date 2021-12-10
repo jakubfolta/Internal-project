@@ -35,7 +35,7 @@ export const About: React.FC<AboutProps> = props => (
 
     <Box>
       <StyledParagraph>
-        {props.description}
+        {props.descriptionVersion}
         {props.readMore 
           || <StyledReadMore onClick={props.onReadMoreClick}>Read More</StyledReadMore>}
       </StyledParagraph>

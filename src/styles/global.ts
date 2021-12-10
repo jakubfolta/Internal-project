@@ -29,11 +29,15 @@ export const GlobalStyle = createGlobalStyle`
       / var(--default-slides-amount) - var(--default-slides-spacing) * 2
     );
 
+    
     // GamePage component
     --default-cover-image-width: 26rem;
     --cover-image-spacing: 2rem;
     --menu-button-width: 8rem;
-
+    --circle-rating-size: 12rem;
+    --progress-bar-width: 2rem;
+    --rating-animation-delay: 1s;
+    
     // Colors
     --color-primary: #323A45;
     --color-background: #FAFAFA;
@@ -48,6 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-grey-5: #BDC3C7;
     --color-grey-6: #e6e6e6;
     --color-grey-7: #bfbfbf;
+    --color-grey-rating: #F3F3F3;
     --color-edit-bg: #f7f8fa;
     --color-edit: #4E4E4E;
     --color-accent: #9047FF;
@@ -56,6 +61,10 @@ export const GlobalStyle = createGlobalStyle`
     --color-accent-dark: #7214FF;
     --color-accent-dark-2: #7314FF;
     --color-accent-dark-3: #6000ef;
+    --color-facebook: #3b5998;
+    --color-twitter: #55ACEE;
+    --color-google: #d34836;
+    --color-rating: #6BA43A;
     
     // Fonts
     --xsmall-font-size: 1.2rem;
@@ -65,6 +74,7 @@ export const GlobalStyle = createGlobalStyle`
     --medium-font-size-2: 2rem;
     --big-font-size: 2.4rem;
     --xl-font-size: 2.8rem;
+    --rating-size: 3rem;
     --game-heading-size: 6rem;
     
     // Animations

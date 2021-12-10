@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/layout";
-import { DefaultButton } from "../../..";
+import { DefaultButton } from "../../../..";
 import { StyledParagraph, StyledSpan } from "./styles";
 
 export const AddTo: React.FC = () => (

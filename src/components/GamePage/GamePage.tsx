@@ -9,6 +9,29 @@ import { Details, Hero } from "../";
 import { Game } from "./interfaces";
 import { Genres, ParentPlatforms, Series } from "../../shared/api.interfaces";
 
+const renderComponents = (game: Game) => (
+  <Box>
+    <Hero 
+      alt={game?.name as string}
+      src={game?.screenshots[game.random_screenshot].image as string} 
+      title={game?.name as string}
+      release={game?.released as string}
+      publisher={game?.publishers[0].name as string}
+      publisherSlug={game?.publishers[0].slug as string}  />
+    <Details 
+      src={game?.background_image as string}
+      nameSlug={game?.slug as string}
+      genres={game?.genres as Genres[]}
+      genreSlug={game?.genres[0].slug as string}
+      platforms={game?.platforms as ParentPlatforms[]}
+      description={game?.description_raw as string}
+      versions={game?.series as Series[]}  
+      website={game?.website as string}
+      reddit={game?.reddit_url as string}
+      metacritic={game?.metacritic}  />
+  </Box>
+);
+
 const GamePage: React.FC = () => {
   const [game, setGame] = useState<Game>();
 
@@ -38,28 +61,8 @@ const GamePage: React.FC = () => {
     })
   }, []);
 
-  const components = game && (
-    <Box>
-      <Hero 
-        alt={game?.name as string}
-        src={game?.screenshots[game.random_screenshot].image as string} 
-        title={game?.name as string}
-        release={game?.released as string}
-        publisher={game?.publishers[0].name as string}
-        publisherSlug={game?.publishers[0].slug as string}  />
-      <Details 
-        src={game?.background_image as string}
-        nameSlug={game?.slug as string}
-        genres={game?.genres as Genres[]}
-        genreSlug={game?.genres[0].slug as string}
-        platforms={game?.platforms as ParentPlatforms[]}
-        description={game?.description_raw as string}
-        versions={game?.series as Series[]}  
-        website={game?.website as string}
-        reddit={game?.reddit_url as string}  />
-    </Box>
-  );
-  
+  const components = game && renderComponents(game);
+
   return (
     <Fragment>
       {components}
